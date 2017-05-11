@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class Smarkets
+public class Exercise
 {
 
   public int segment(int x, int[] array){

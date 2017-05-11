@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * Created by morsi on 21/04/2017.
  */
-public class Smarket3
+public class Exercise3
 {
 
   int readingArticles(int[] intellectual, int[] pages, int p) {

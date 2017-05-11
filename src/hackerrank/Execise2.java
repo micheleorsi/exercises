@@ -3,7 +3,7 @@ package hackerrank;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Smarket2
+public class Execise2
 {
 
   String canReach(int x1,int y1, int x2, int y2)
