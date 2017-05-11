@@ -1,9 +1,9 @@
-package hackerrank;
+package interview;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Execise2
+public class CanReachAPointInAPlane
 {
 
   String canReach(int x1,int y1, int x2, int y2)

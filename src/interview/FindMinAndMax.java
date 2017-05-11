@@ -1,11 +1,11 @@
-package hackerrank;
+package interview;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-public class Exercise
+public class FindMinAndMax
 {
 
   public int segment(int x, int[] array){

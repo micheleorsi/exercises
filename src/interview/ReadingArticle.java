@@ -1,4 +1,4 @@
-package hackerrank;
+package interview;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * Created by morsi on 21/04/2017.
  */
-public class Exercise3
+public class ReadingArticle
 {
 
   int readingArticles(int[] intellectual, int[] pages, int p) {
