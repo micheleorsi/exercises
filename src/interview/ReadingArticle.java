@@ -5,9 +5,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-/**
- * Created by morsi on 21/04/2017.
- */
 public class ReadingArticle
 {
 

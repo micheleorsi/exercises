@@ -1,8 +1,5 @@
 package interview;
 
-/**
- * Created by morsi on 25/04/2017.
- */
 public class LoadConfig
 {
 //  // This is the text editor interface.
