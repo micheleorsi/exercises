@@ -18,7 +18,7 @@ public class SearchInATree
     Assert.assertEquals(2,search(2,root));
   }
 
-  private int search(int value, Node node)
+  public int search(int value, Node node)
   {
     if(node==null)
     {
