@@ -6,55 +6,17 @@ import org.junit.Test;
 
 public class FindMinMaxInATree
 {
-  class Node
-  {
-    int value;
-    Node parent;
-    Node left;
-    Node right;
 
-    public Node(int value, Node parent, Node left, Node right)
-    {
-      this.value = value;
-      this.parent = parent;
-      this.left = left;
-      this.right = right;
-    }
-  }
-
-  /**
-   *    5
-   *  /   \
-   *  3   8
-   * / \  / \
-   * 2 4  6 9
-   *
-   */
   @Test
   public void test()
   {
-    Node root = new Node(5,null,null,null);
+    Node root = BSTBuilder.getRoot();
 
-    Node three = new Node(3,root,null,null);
-    Node two = new Node(2,three,null,null);
-    Node four = new Node(4,three,null,null);
-    three.left = two;
-    three.right = four;
+    Assert.assertEquals(1,findMin(root));
+    Assert.assertEquals(15,findMax(root));
 
-    Node eight = new Node(8,root,null,null);
-    Node six = new Node(6,eight,null,null);
-    Node nine = new Node(9,eight,null,null);
-    eight.left = six;
-    eight.right = nine;
-
-    root.left = three;
-    root.right = eight;
-
-    Assert.assertEquals(2,findMin(root));
-    Assert.assertEquals(9,findMax(root));
-
-    Assert.assertEquals(2,findMinIterative(root));
-    Assert.assertEquals(9,findMaxIterative(root));
+    Assert.assertEquals(1,findMinIterative(root));
+    Assert.assertEquals(15,findMaxIterative(root));
   }
 
   private int findMaxIterative(Node node)
