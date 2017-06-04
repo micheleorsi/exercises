@@ -3,7 +3,7 @@ package algo.linkedlist;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DeletionFromAList
+public class DeletionFromALinkedList
 {
 
   @Test
@@ -20,30 +20,28 @@ public class DeletionFromAList
     Node n2 = new Node(2,n3);
     Node head = new Node(1,n2);
 
-    Node newHead = deleteFromList(5,head);
+    Node newHead = deleteFromLinkedList(5,head);
     Assert.assertEquals(6,newHead.next.next.next.next.item);
-    newHead = deleteFromList(1,head);
+    newHead = deleteFromLinkedList(1,head);
     Assert.assertEquals(2,newHead.item);
   }
 
-  Node deleteFromList(int elem, Node head)
+  Node deleteFromLinkedList(int elem, Node head)
   {
+    Node n = head;
     if(head.item==elem)
     {
       return head.next;
     }
-    Node prev = null;
-    Node newHead = head;
-    while(head!=null)
+    while(n.next!=null)
     {
-      if(head.item==elem && prev!=null)
+      if(n.next.item==elem)
       {
-        prev.next = head.next;
+        n.next = n.next.next;
       }
-      prev = head;
-      head = head.next;
+      n = n.next;
     }
-    return newHead;
+    return head;
   }
 
 }
