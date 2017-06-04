@@ -5,17 +5,6 @@ import org.junit.Test;
 
 public class InsertionInALinkedList
 {
-  class Node
-  {
-    int item;
-    Node next;
-
-    public Node(int item, Node next)
-    {
-      this.item = item;
-      this.next = next;
-    }
-  }
 
   @Test
   public void test()
