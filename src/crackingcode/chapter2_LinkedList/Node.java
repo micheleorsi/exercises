@@ -3,12 +3,11 @@ package crackingcode.chapter2_LinkedList;
 
 public class Node<T>
 {
-  T data;
-  Node<T> next;
+  public T data;
+  public Node<T> next;
 
   Node(T data)
   {
-
     this.data = data;
   }
 
