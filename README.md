@@ -1,15 +1,15 @@
 
-# ALGO
+# ALGORITHMS
 
 - [X] binary search
 
 ## sort
 
-* heap sort
-* insertion sort
-* merge sort
-* quick sort
-* selection sort
+- [ ] heap sort
+- [X] insertion sort
+- [ ] merge sort
+- [ ] quick sort
+- [X] selection sort
 
 ## linked list
 
