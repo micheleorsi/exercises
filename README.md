@@ -1,7 +1,7 @@
 
 # ALGO
 
-* binary search
+- [X] binary search
 
 ## sort
 
