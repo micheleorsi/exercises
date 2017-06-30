@@ -10,6 +10,8 @@
 - [ ] merge sort
 - [ ] quick sort
 - [X] selection sort
+- [ ] distribution sort
+- [ ] radix sort
 
 ## linked list
 
@@ -28,7 +30,9 @@
 ## heap
 
 - [ ] build heap
-- [ ] extract min
+- [ ] extract min (bubble down)
+- [ ] heap in an array
+- [ ] insert in a heap (bubble up)
 
 ## graph
 
@@ -57,3 +61,13 @@
 - [ ] string pattern matching
 - [ ] matrix multiplication
 - [ ] fast exponentiation
+- [ ] finding intersection
+- [ ] counting occurencies
+- [ ] one side binary tree
+- [ ] square and other roots
+
+# THEOREM
+- [ ] master algorithm
+
+
+

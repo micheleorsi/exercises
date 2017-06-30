@@ -32,6 +32,25 @@ public class JavaRegex
   }
 
   @Test
+  public void testhack()
+  {
+    String[] invalid = new String[]{
+            "000.12.234" +
+                    "121.234.12.12" +
+                    "23.45.12.56"+
+                    "000.12.12.034" +
+                    "121.234.12.12" +
+                    "23.45.12.56"
+    };
+
+    for(String str: invalid) {
+      Assert.assertEquals(false,isValid(str));
+    }
+
+
+  }
+
+  @Test
   public void valid()
   {
     String[] list = new String[]{
