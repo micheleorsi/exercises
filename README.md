@@ -46,10 +46,11 @@
 
 ## backtracking
 
-- [ ] subsets
-- [ ] permutations
-- [ ] combination sum
-- [ ] palindrome partitioning
+- [X] subsets
+- [X] anagram of a string
+- [X] permutations
+- [X] combination sum
+- [X] palindrome partitioning
 - [ ] all paths in a graph
 - [ ] sudoku
 
