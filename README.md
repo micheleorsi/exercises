@@ -56,9 +56,12 @@
 
 # PROBLEMS
 
+## chap 1
 - [ ] robot tour optimization
 - [ ] movie scheduling problem
-- [ ] set cover
+
+
+- [ ] set covering
 - [ ] string pattern matching
 - [ ] matrix multiplication
 - [ ] fast exponentiation
@@ -68,7 +71,11 @@
 - [ ] square and other roots
 
 # THEOREM
+- [ ] 1 + 2 + 3 + 4 .. n = n(n+1)/2
+- [ ] 1 + 1/2 + 1/4 + 1/8 .. < 2
 - [ ] master algorithm
 
+# INTERVIEW QUESTIONS
+- [ ] integer division without using either the / or operators.
 
 
