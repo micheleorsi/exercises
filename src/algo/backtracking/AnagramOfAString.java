@@ -11,20 +11,25 @@ public class AnagramOfAString
   @Test
   public void test()
   {
-    anagram(new char[]{'c','i','a','o'}, new ArrayList<>());
+    List<List<Character>> catalog = new ArrayList<>();
+    anagram(new char[]{'c','i','a','o'}, catalog, new ArrayList<>());
+    for(int i=0; i<catalog.size(); i++)
+    {
+      System.out.println(catalog.get(i));
+    }
   }
 
-  public void anagram(char[] s, List<Character> temp)
+  public void anagram(char[] s, List<List<Character>> catalog, List<Character> temp)
   {
     if(temp.size()==s.length)
     {
-      System.out.println(temp);
+      catalog.add(new ArrayList<>(temp));
     }
     for (int i=0; i< s.length; i++)
     {
       if(temp.contains(s[i])) continue;
       temp.add(s[i]);
-      anagram(s,temp);
+      anagram(s,catalog,temp);
       temp.remove(temp.size()-1);
     }
   }
