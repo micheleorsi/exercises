@@ -1,9 +1,8 @@
 package algo.sort;
 
-
-public class BubbleSort {
-
-    public int[] sort(int[] array)
+public class BubbleSort implements Sort
+{
+    public void sort(int[] array)
     {
         for(int i=0; i<array.length; i++)
         {
@@ -17,6 +16,5 @@ public class BubbleSort {
                 }
             }
         }
-        return array;
     }
 }

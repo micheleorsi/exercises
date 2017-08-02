@@ -1,26 +1,29 @@
 package algo.sort;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 public class SortingTest
 {
-  int[] noDuplicates, duplicates;
+  int[][] standard;
+  int[][] edges;
 
   public void init()
   {
-    noDuplicates = new int[] {
-            10,2,3,4,20,5,9,13
+    standard = new int[][] {
+      new int[] {10,2,3,4,20,5,9,13},
+      new int[] {10,2,3,4,20,5,9,13,10,2,3}, // duplicates
+      new int[] {8,7,6,5,4,3,2,1} // reverse order
     };
-    duplicates = new int[] {
-            10,2,3,4,20,5,9,13,10,2,3
+    edges = new int[][] {
+      new int[]{},
+      new int[]{1}
     };
   }
 
-  private boolean assertOrdered(int[] array)
+  private boolean isAscendingOrdered(int[] array)
   {
     boolean isOrdered = true;
     for(int i=1; i<array.length; i++)
@@ -31,24 +34,58 @@ public class SortingTest
     return isOrdered;
   }
 
-  @Test
-  public void test()
+  @Before
+  public void before()
   {
     init();
-    Assert.assertFalse(assertOrdered(noDuplicates));
-    Assert.assertFalse(assertOrdered(duplicates));
-    new BubbleSort().sort(noDuplicates);
-    new BubbleSort().sort(duplicates);
-    Assert.assertTrue(assertOrdered(noDuplicates));
-    Assert.assertTrue(assertOrdered(duplicates));
+    for(int[] array: standard)
+    {
+      Assert.assertFalse(isAscendingOrdered(array));
+    }
+  }
 
-    init();
-    Assert.assertFalse(assertOrdered(noDuplicates));
-    Assert.assertFalse(assertOrdered(duplicates));
-    new SelectionSort().sort(noDuplicates);
-    new SelectionSort().sort(duplicates);
-    Assert.assertTrue(assertOrdered(noDuplicates));
-    Assert.assertTrue(assertOrdered(duplicates));
+  @After
+  public void after()
+  {
+    for(int[] array: standard)
+    {
+      Assert.assertTrue(isAscendingOrdered(array));
+    }
+  }
 
+  @Test
+  public void BubbleSort() {
+    for(int[] array: standard)
+    {
+      new BubbleSort().sort(array);
+    }
+    for(int[] array: edges)
+    {
+      new BubbleSort().sort(array);
+    }
+  }
+
+  @Test
+  public void SelectionSort() {
+    for(int[] array: standard)
+    {
+      new SelectionSort().sort(array);
+    }
+    for(int[] array: edges)
+    {
+      new SelectionSort().sort(array);
+    }
+  }
+
+  @Test
+  public void InsertionSort() {
+    for(int[] array: standard)
+    {
+      new InsertionSort().sort(array);
+    }
+    for(int[] array: edges)
+    {
+      new InsertionSort().sort(array);
+    }
   }
 }

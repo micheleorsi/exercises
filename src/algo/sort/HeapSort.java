@@ -1,9 +1,9 @@
 package algo.sort;
 
-public class HeapSort
+public class HeapSort implements Sort
 {
-    public int[] sort(int[] array)
+    public void sort(int[] array)
     {
-        return null;
+
     }
 }
