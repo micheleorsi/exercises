@@ -17,7 +17,6 @@ public class InsertionSort implements Sort {
           array[j] = temp;
         }
       }
-
     }
   }
 }

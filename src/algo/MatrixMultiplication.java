@@ -5,6 +5,7 @@ import org.junit.Test;
 public class MatrixMultiplication
 {
 
+  // A: 2 x 5 - B: 5 x 3
   public void matrixMultiplication(int[][] A, int[][] B, int[][] result)
   {
     for(int i=0; i<A.length; i++) // 2

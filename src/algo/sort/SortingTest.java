@@ -88,4 +88,28 @@ public class SortingTest
       new InsertionSort().sort(array);
     }
   }
+
+  @Test
+  public void QuickSort() {
+    for(int[] array: standard)
+    {
+      new QuickSort().sort(array);
+    }
+    for(int[] array: edges)
+    {
+      new QuickSort().sort(array);
+    }
+  }
+
+  @Test
+  public void MergeSort() {
+    for(int[] array: standard)
+    {
+      new MergeSort().sort(array);
+    }
+    for(int[] array: edges)
+    {
+      new MergeSort().sort(array);
+    }
+  }
 }

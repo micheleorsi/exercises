@@ -20,25 +20,25 @@ public class Knapsack
     }
   }
 
-  private int knapsackMem(int[] values, int[] weights, int maxWeight) {
-    int[][] K = new int[values.length+1][maxWeight+1];
+  private int knapsackMem(int[] values, int[] weights, int maxW) {
+    int[][] K = new int[values.length+1][maxW+1];
 
-    for (int valIdx = 0; valIdx <= values.length; valIdx++)
+    for (int i = 0; i <= values.length; i++)
     {
-      for (int w = 0; w <= maxWeight; w++)
+      for (int w = 0; w <= maxW; w++)
       {
-        if (valIdx==0 || w==0)
-          K[valIdx][w] = 0;
-        else if (weights[valIdx-1] <= w)
-          K[valIdx][w] = Math.max(
-                  values[valIdx-1] + K[valIdx-1][w-weights[valIdx-1]],
-                  K[valIdx-1][w]
+        if (i==0 || w==0)
+          K[i][w] = 0;
+        else if (weights[i-1] <= w)
+          K[i][w] = Math.max(
+                  values[i-1] + K[i-1][w-weights[i-1]],
+                  K[i-1][w]
           );
         else
-          K[valIdx][w] = K[valIdx-1][w];
+          K[i][w] = K[i-1][w];
       }
     }
-    return K[values.length][maxWeight];
+    return K[values.length][maxW];
   }
 
   @Test
