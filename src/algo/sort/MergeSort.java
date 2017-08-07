@@ -1,6 +1,6 @@
 package algo.sort;
 
-import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class MergeSort implements Sort
@@ -29,8 +29,8 @@ public class MergeSort implements Sort
 
     private void merge(int arr[], int left, int middle, int right)
     {
-        Queue<Integer> lQueue = new ArrayDeque<>();
-        Queue<Integer> rQueue = new ArrayDeque<>();
+        Queue<Integer> lQueue = new LinkedList<>();
+        Queue<Integer> rQueue = new LinkedList<>();
 
         for (int i = left; i<= middle; i++) // O(n)
             lQueue.add(arr[i]);
@@ -39,7 +39,7 @@ public class MergeSort implements Sort
 
         int i = left;
 
-        while(!(lQueue.isEmpty() || rQueue.isEmpty()))
+        while(!(lQueue.isEmpty() || rQueue.isEmpty())) // O(n)
         {
             if(lQueue.peek() <= rQueue.peek())
             {
@@ -51,8 +51,8 @@ public class MergeSort implements Sort
             }
         }
 
-        while(!lQueue.isEmpty()) arr[i++]= lQueue.poll();
-        while(!rQueue.isEmpty()) arr[i++]= rQueue.poll();
+        while(!lQueue.isEmpty()) arr[i++]= lQueue.poll(); // O(n)
+        while(!rQueue.isEmpty()) arr[i++]= rQueue.poll(); // O(n)
     }
 
 }

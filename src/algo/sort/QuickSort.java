@@ -18,13 +18,14 @@ public class QuickSort implements Sort
     }
 
     private int partition(int[] array, int left, int right) {
+        int p = array[right];
+
         int idx = left;  // Index of smaller element
 
         for (int j = left; j < right; j++)
         {
-            // If current element is smaller than or
-            // equal to pivot
-            if (array[j] <= array[right])
+            // If current element is smaller than or equal to pivot
+            if (array[j] < p)
             {
                 swap(array, idx, j);
                 idx++;    // increment index of smaller element
