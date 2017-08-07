@@ -1,9 +1,6 @@
 package algo.sort;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 public class SortingTest
 {
@@ -15,11 +12,12 @@ public class SortingTest
     standard = new int[][] {
       new int[] {10,2,3,4,20,5,9,13},
       new int[] {10,2,3,4,20,5,9,13,10,2,3}, // duplicates
-      new int[] {8,7,6,5,4,3,2,1} // reverse order
+      new int[] {8,7,6,5,4,3,2,1}, // reverse order
     };
     edges = new int[][] {
       new int[]{},
-      new int[]{1}
+      new int[]{1},
+      new int[]{1,1,1,1,1,1},
     };
   }
 
@@ -48,6 +46,10 @@ public class SortingTest
   public void after()
   {
     for(int[] array: standard)
+    {
+      Assert.assertTrue(isAscendingOrdered(array));
+    }
+    for(int[] array: edges)
     {
       Assert.assertTrue(isAscendingOrdered(array));
     }

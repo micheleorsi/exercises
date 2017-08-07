@@ -9,14 +9,36 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+
+/**
+ * Given a set of distinct integers, nums, return all possible subsets.
+ *
+ * Note: The solution set must not contain duplicate subsets.
+ *
+ * For example,
+ * If nums = [1,2,3], a solution is:
+ *
+ * [
+ * [3],
+ * [1],
+ * [2],
+ * [1,2,3],
+ * [1,3],
+ * [2,3],
+ * [1,2],
+ *  []
+ * ]
+ *
+ */
 public class SubsetAlgo
 {
 
   //subsets
   @Test
   public void threeElement() {
-    List<List<Integer>> subsets = subsets(new int[] { 1, 2, 3 });
+    List<List<Integer>> subsets = subsets(new int[] { 3, 1, 2 });
 
     assertNotNull(subsets);
     subsets = new LinkedList<List<Integer>>(subsets);
@@ -47,7 +69,7 @@ public class SubsetAlgo
   // with duplicates
   @Test
   public void threeElementWithDuplicates() {
-    List<List<Integer>> subsets = subsetsWithDuplicates(new int[] { 1, 2, 2 });
+    List<List<Integer>> subsets = subsetsWithDuplicates(new int[] { 2, 1, 2 });
 
     assertNotNull(subsets);
     subsets = new LinkedList<>(subsets);

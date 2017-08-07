@@ -10,13 +10,28 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * Given a collection of distinct numbers, return all possible permutations.
+ *
+ * For example,
+ * [1,2,3] have the following permutations:
+ * [
+ * [1,2,3],
+ * [1,3,2],
+ * [2,1,3],
+ * [2,3,1],
+ * [3,1,2],
+ * [3,2,1]
+ * ]
+ *
+ */
 public class Permutations
 {
 
   // permutations
   @Test
   public void threeElement() {
-    List<List<Integer>> subsets = permutations(new int[] { 1, 2, 3 });
+    List<List<Integer>> subsets = permutations(new int[] { 3, 1, 2 });
 
     assertNotNull(subsets);
     subsets = new LinkedList<List<Integer>>(subsets);
@@ -30,7 +45,7 @@ public class Permutations
   private List<List<Integer>> permutations(int[] nums)
   {
     List<List<Integer>> list = new ArrayList<>();
-    Arrays.sort(nums); // not needed
+//    Arrays.sort(nums); // not needed
     backtrack(list,new ArrayList<>(),nums);
     return list;
   }
@@ -44,7 +59,7 @@ public class Permutations
     else {
       for(int i=0; i<nums.length; i++)
       {
-        if(tempList.contains(nums[i])) continue;
+        if(tempList.contains(nums[i])) continue; // O(n)
         tempList.add(nums[i]);
         this.backtrack(list, tempList, nums);
         tempList.remove(tempList.size()-1);
@@ -55,7 +70,7 @@ public class Permutations
   // with duplicates
   @Test
   public void threeElementWithDuplicates() {
-    List<List<Integer>> subsets = permutationsWithDuplicates(new int[] { 1, 2, 2 });
+    List<List<Integer>> subsets = permutationsWithDuplicates(new int[] { 2, 1, 2 });
 
     assertNotNull(subsets);
     subsets = new LinkedList<List<Integer>>(subsets);

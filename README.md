@@ -7,19 +7,19 @@
 
 - [ ] heap sort
 - [X] insertion sort
-- [ ] merge sort
-- [ ] quick sort
+- [X] merge sort
+- [X] quick sort
 - [X] selection sort
-- [ ] bubble sort
+- [X] bubble sort
 - [ ] distribution sort
 - [ ] radix sort
 - [ ] shellsort
 
 ## linked list
 
-- [X] search in a linked list
+- [ ] search in a linked list
 - [ ] insertion in a linked list
-- [X] deletion from a list
+- [ ] deletion from a list
 
 ## stack
 
@@ -100,10 +100,10 @@
 ## backtracking
 
 - [X] subsets
-- [X] anagram of a string
-- [X] permutations
-- [X] combination sum
-- [X] palindrome partitioning
+- [ ] permutations
+- [ ] combination sum
+- [ ] palindrome partitioning
+- [ ] anagram of a string
 - [ ] all paths in a graph
 - [ ] sudoku
 
@@ -119,6 +119,12 @@
 
 ## dynamic programming
 
+- [X] knapsack problem
+
+## randomized algo
+
+- [ ] reservoir sampling
+
 # PROBLEMS
 
 ## chap 1
@@ -130,8 +136,8 @@
 ## chap 2: algo analysis
 
 - [ ] string pattern matching
-- [ ] matrix multiplication
-- [ ] fast exponentiation
+- [X] matrix multiplication
+- [X] fast exponentiation
 
 ## chap 3: data structure
 
@@ -198,15 +204,15 @@
 # THEOREM
 - [ ] 1 + 2 + 3 + 4 .. n = n(n+1)/2
 - [ ] (n-1) + (n-2) + (n-3) + .. + 2 + 1 = n(n-1)/2
-- [ ] 1 + 1/2 + 1/4 + 1/8 .. < 2
+- [ ] 1 + 1/2 + 1/4 + 1/8 .. = ln n (< 2) (harmonic number) 
 - [ ] f(n) = O(g(n)) -> c such that f(n) is always < c * g(n), for large enough n
-- [ ] f(n) = Sigma(g(n)) -> c such that f(n) is always > c * g(n), for large enough n
 - [ ] f(n) = Teta(g(n)) -> c1 and c2 such that f(n) is always > c2 * g(n) and < c1 * g(n), for large enough n
-- [ ] loga (x*y) = loga (x) + loga (y)
-- [ ] loga n^b = b * loga n, a^b = exp(ln(a^b)) = exp(b * ln a)
-- [ ] loga b = logc b / logc a
+- [ ] f(n) = Sigma(g(n)) -> c such that f(n) is always > c * g(n), for large enough n
+- [ ] log<sub>a</sub> (x*y) = log<sub>a</sub> x + log<sub>a</sub> y
+- [ ] log<sub>a</sub> n<sup>b</sup> = b * log<sub>a</sub> n, a<sup>b</sup> = exp(ln(a<sup>b</sup>)) = exp(b * ln a)
+- [ ] log<sub>a</sub> b = log<sub>c</sub> b / log<sub>c</sub> a
 - [ ] polynomial recurrence: An = n -> An = An-1 +1, A1 = 1
-- [ ] exponential recurrence: An = 2^(n-1) -> An = 2An-1, A1 = 1
+- [ ] exponential recurrence: An = 2<sup>(n-1)</sup> -> An = 2An-1, A1 = 1
 - [ ] factorial recurrence: An = n! -> An = nAn-1, A1 = 1
 - [ ] master algorithm - T(n) = aT(n/b) + f(n), depending on f(n)
 
@@ -214,8 +220,9 @@
 
 ## chap 1
 
-- [ ] integer division without using either the / or operators.
-- [ ] on average, how many times would you have to flip open the Manhattan phone book at random in order to find a specific name?
+- [X] integer division without using either the / or * operators.
+- [X] on average, how many times would you have to flip open the Manhattan phone book at random in order to find a specific name?
+- [ ] Implement the two TSP heuristics of Section 1.1 (page 5). Which of them gives better-quality solutions in practice? Can you devise a heuristic that works better than both of them'?
 
 ## chap 2: algo analysis
 

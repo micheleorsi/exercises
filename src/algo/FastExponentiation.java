@@ -4,13 +4,18 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * 2 * 2 * 2 * 2
+ * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 = 2^8
+ * 2 * 2 * 2 * 2 = 2^4
+ * 2 * 2 = 2^2
+ * 2 = 2
  */
 public class FastExponentiation
 {
   @Test
   public void test()
   {
+    Assert.assertEquals(0,power(0,9));
+    Assert.assertEquals(Integer.MIN_VALUE,power(0,0));
     Assert.assertEquals(1,power(2,0));
     Assert.assertEquals(2,power(2,1));
     Assert.assertEquals(4,power(2,2));
@@ -22,6 +27,10 @@ public class FastExponentiation
   }
   int power(int base, int exp)
   {
+    if(base==exp && base == 0)
+    {
+      return Integer.MIN_VALUE;
+    }
     if (exp==0)
     {
       return 1;
@@ -30,13 +39,14 @@ public class FastExponentiation
     {
       return base;
     }
+    int result = power(base, exp/2);
+    int returnResult = result*result;
     if(exp%2==0)
     {
-      int result = power(base, exp/2);
-      return result * result;
+      return returnResult;
     }
     else{
-      return base * power(base, exp-1);
+      return returnResult*base;
     }
   }
 }
