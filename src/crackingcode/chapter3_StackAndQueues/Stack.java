@@ -1,9 +1,11 @@
 package crackingcode.chapter3_StackAndQueues;
 
+import algo.linkedlist.LLNode;
+
 public class Stack
 {
 
-  Node top = null;
+  LLNode top = null;
 
   int pop()
   {
@@ -13,14 +15,14 @@ public class Stack
     }
     else
     {
-      int data = top.value;
+      int data = top.item;
       top = top.next;
       return data;
     }
   }
   void push(int elem)
   {
-    Node n = new Node(elem);
+    LLNode n = new LLNode(elem,null);
     n.next=top;
     top = n;
   }
@@ -32,7 +34,7 @@ public class Stack
     }
     else
     {
-      return top.value;
+      return top.item;
     }
   }
   boolean isEmpty()

@@ -1,14 +1,16 @@
 package crackingcode.chapter3_StackAndQueues;
 
+import algo.linkedlist.LLNode;
+
 public class Queue
 {
 
-  private Node first;
-  private Node last;
+  private LLNode first;
+  private LLNode last;
 
   void add(int item)
   {
-    Node newNode = new Node(item);
+    LLNode newNode = new LLNode(item,null);
     if(last!=null)
     {
       last.next = newNode;
@@ -26,7 +28,7 @@ public class Queue
     {
       throw new RuntimeException("empty queue");
     }
-    int data = first.value;
+    int data = first.item;
     first = first.next;
     if(first==null)
     {
@@ -43,7 +45,7 @@ public class Queue
     }
     else
     {
-      return first.value;
+      return first.item;
     }
 
   }

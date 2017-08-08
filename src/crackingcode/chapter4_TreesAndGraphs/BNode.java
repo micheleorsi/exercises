@@ -1,7 +1,8 @@
 package crackingcode.chapter4_TreesAndGraphs;
 
-public class Node
+public class BNode
 {
   public String name;
-  public Node[] children;
+  public BNode left;
+  public BNode right;
 }

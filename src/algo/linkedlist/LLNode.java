@@ -2,8 +2,8 @@ package algo.linkedlist;
 
 public class LLNode
 {
-  int item;
-  LLNode next;
+  public int item;
+  public LLNode next;
 
   public LLNode(int item, LLNode next)
   {
