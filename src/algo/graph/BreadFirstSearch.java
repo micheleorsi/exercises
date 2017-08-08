@@ -2,8 +2,6 @@ package algo.graph;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -20,16 +18,16 @@ public class BreadFirstSearch
     search(g,g.nodes.get(0));
   }
 
-  void search(Graph g, Node head)
+  void search(Graph g, GNode head)
   {
     // init all the nods to UNVISITED
-    for(Node n: g.nodes)
+    for(GNode n: g.nodes)
     {
       n.status = Status.UNVISITED;
     }
 
     // init queue
-    Queue<Node> queue = new LinkedList<>();
+    Queue<GNode> queue = new LinkedList<>();
     // add root to the queue (at the end)
     queue.add(head);
 
@@ -37,11 +35,11 @@ public class BreadFirstSearch
     while (!queue.isEmpty())
     {
       // extract first from the queue
-      Node actual = queue.remove();
+      GNode actual = queue.remove();
       // visit
       visit(actual);
       // loop through all the other one
-      for(Node n: actual.adj)
+      for(GNode n: actual.adj)
       {
         // add to the queue if not visited
         if(n.status!=Status.VISITED)
@@ -55,7 +53,7 @@ public class BreadFirstSearch
 
   }
 
-  private void visit(Node head)
+  private void visit(GNode head)
   {
     System.out.println(head.value);
   }
@@ -64,16 +62,16 @@ public class BreadFirstSearch
 
 class Graph
 {
-  List<Node> nodes;
+  List<GNode> nodes;
 }
 
-class Node
+class GNode
 {
   int value;
-  List<Node> adj;
+  List<GNode> adj;
   Status status;
 
-  public Node(int value)
+  public GNode(int value)
   {
     this.value = value;
   }

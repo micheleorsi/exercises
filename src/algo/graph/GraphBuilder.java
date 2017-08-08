@@ -6,13 +6,13 @@ public class GraphBuilder
 {
   static Graph build()
   {
-    Node one = new Node(1);
-    Node two = new Node(2);
-    Node three = new Node(3);
-    Node four = new Node(4);
-    Node five = new Node(5);
-    Node six = new Node(6);
-    Node seven = new Node(7);
+    GNode one = new GNode(1);
+    GNode two = new GNode(2);
+    GNode three = new GNode(3);
+    GNode four = new GNode(4);
+    GNode five = new GNode(5);
+    GNode six = new GNode(6);
+    GNode seven = new GNode(7);
     one.adj = Arrays.asList(two);
     two.adj = Arrays.asList(five,three,six);
     three.adj = Arrays.asList(four,seven);

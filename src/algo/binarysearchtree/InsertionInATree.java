@@ -17,7 +17,7 @@ public class InsertionInATree
   @Test
   public void test()
   {
-    Node root = BSTBuilder.getRoot();
+    BSTNode root = BSTBuilder.getRoot();
     Assert.assertEquals(7,root.left.right.right.value);
     root.left.right.right = null;
     Assert.assertEquals(-1,new SearchInATree().search(7,root));
@@ -27,11 +27,11 @@ public class InsertionInATree
 
   }
 
-  private Node insert(int num, Node node, Node parent)
+  private BSTNode insert(int num, BSTNode node, BSTNode parent)
   {
     if(node==null)
     {
-      return new Node(num,parent,null,null);
+      return new BSTNode(num,parent,null,null);
     } else if(num>node.value) {
       node.right = insert(num,node.right,node);
     }

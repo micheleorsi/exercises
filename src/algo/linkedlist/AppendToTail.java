@@ -9,15 +9,15 @@ public class AppendToTail
   @Test
   public void test()
   {
-    Node root = new Node(1,null);
-    Node newNode = new Node(2,null);
+    LLNode root = new LLNode(1,null);
+    LLNode newNode = new LLNode(2,null);
     appendToTail(root,newNode);
     Assert.assertEquals(newNode,root.next);
   }
 
-  private void appendToTail(Node root, Node newNode)
+  private void appendToTail(LLNode root, LLNode newNode)
   {
-    Node actual = root;
+    LLNode actual = root;
     while(actual.next!=null)
     {
       actual = actual.next;

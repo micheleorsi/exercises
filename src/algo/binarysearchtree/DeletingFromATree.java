@@ -17,13 +17,13 @@ public class DeletingFromATree
   @Test
   public void test()
   {
-    Node root = BSTBuilder.getRoot();
+    BSTNode root = BSTBuilder.getRoot();
     Assert.assertEquals(7,root.left.right.right.value);
     root.left.right.right=null;
     delete(5,root,null);
   }
 
-  private void delete(int num, Node node, Node parent)
+  private void delete(int num, BSTNode node, BSTNode parent)
   {
     if(node.value==num)
     {

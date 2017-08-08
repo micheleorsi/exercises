@@ -9,25 +9,25 @@ public class InsertionInALinkedList
   @Test
   public void test()
   {
-    Node n10 = new Node(10,null);
-    Node n9 = new Node(9,n10);
-    Node n8 = new Node(8,n9);
-    Node n7 = new Node(7,n8);
-    Node n6 = new Node(6,n7);
-    Node n5 = new Node(5,n6);
-    Node n4 = new Node(4,n5);
-    Node n3 = new Node(3,n4);
-    Node n2 = new Node(2,n3);
-    Node head = new Node(1,n2);
+    LLNode n10 = new LLNode(10,null);
+    LLNode n9 = new LLNode(9,n10);
+    LLNode n8 = new LLNode(8,n9);
+    LLNode n7 = new LLNode(7,n8);
+    LLNode n6 = new LLNode(6,n7);
+    LLNode n5 = new LLNode(5,n6);
+    LLNode n4 = new LLNode(4,n5);
+    LLNode n3 = new LLNode(3,n4);
+    LLNode n2 = new LLNode(2,n3);
+    LLNode head = new LLNode(1,n2);
 
     Assert.assertEquals(head,insertAtTheBeginning(10,head).next);
   }
 
-  public Node insertAtTheBeginning(int elem, Node head)
+  public LLNode insertAtTheBeginning(int elem, LLNode head)
   {
     if(head!=null)
     {
-      Node temp = new Node(elem,head);
+      LLNode temp = new LLNode(elem,head);
       return temp;
     } else
     {

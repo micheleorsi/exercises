@@ -1,4 +1,4 @@
-package crackingcode.chapter2_LinkedList;
+package algo.linkedlist;
 
 import org.junit.Test;
 

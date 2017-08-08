@@ -1,14 +1,14 @@
 package algo.binarysearchtree;
 
 
-public class Node
+public class BSTNode
 {
   int value;
-  Node parent;
-  Node left;
-  Node right;
+  BSTNode parent;
+  BSTNode left;
+  BSTNode right;
 
-  public Node(int value, Node parent, Node left, Node right)
+  public BSTNode(int value, BSTNode parent, BSTNode left, BSTNode right)
   {
     this.value = value;
     this.parent = parent;

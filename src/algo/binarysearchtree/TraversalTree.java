@@ -24,7 +24,7 @@ public class TraversalTree
     postorderTraversal(BSTBuilder.getRoot());
   }
 
-  private void postorderTraversal(Node root)
+  private void postorderTraversal(BSTNode root)
   {
     if(root!=null)
     {
@@ -34,7 +34,7 @@ public class TraversalTree
     }
   }
 
-  private void preorderTraversal(Node root)
+  private void preorderTraversal(BSTNode root)
   {
     if(root!=null)
     {
@@ -44,7 +44,7 @@ public class TraversalTree
     }
   }
 
-  public void orderTraversal(Node node)
+  public void orderTraversal(BSTNode node)
   {
     if(node!=null)
     {
@@ -54,7 +54,7 @@ public class TraversalTree
     }
   }
 
-  public void process(Node node)
+  public void process(BSTNode node)
   {
     System.out.println(node.value);
   }

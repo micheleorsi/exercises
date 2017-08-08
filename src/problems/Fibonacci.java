@@ -33,13 +33,13 @@ public class Fibonacci
   @Test
   public void performanceTestWitRecursive()
   {
-    Assert.assertEquals(1134903170,fibonacciRecursive(45));
+    Assert.assertEquals(433494437,fibonacciRecursive(43));
   }
 
   @Test
   public void performanceTestWitRecursiveWithMem()
   {
-    Assert.assertEquals(1134903170,fibonacciRecursiveMemoization(45,new int[46]));
+    Assert.assertEquals(433494437,fibonacciRecursiveMemoization(43,new int[44]));
   }
 
   private int fibonacci(int i)

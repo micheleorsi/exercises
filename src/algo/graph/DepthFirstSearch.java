@@ -2,8 +2,6 @@ package algo.graph;
 
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 public class DepthFirstSearch
@@ -16,16 +14,16 @@ public class DepthFirstSearch
     searchStack(g,g.nodes.get(0));
   }
 
-  void searchStack(Graph g, Node head)
+  void searchStack(Graph g, GNode head)
   {
     // init all the nods to UNVISITED
-    for(Node n: g.nodes)
+    for(GNode n: g.nodes)
     {
       n.status = Status.UNVISITED;
     }
 
     // init stack
-    Stack<Node> stack = new Stack<>();
+    Stack<GNode> stack = new Stack<>();
     // add root to the stack
     stack.push(head);
 
@@ -33,14 +31,14 @@ public class DepthFirstSearch
     while(!stack.isEmpty())
     {
       // extract last from the stack
-      Node actual = stack.pop();
+      GNode actual = stack.pop();
       // visit if it is not already visited
       if(actual.status!=Status.VISITED)
       {
         visit(actual);
       }
       // loop through all the other one
-      for(Node n: actual.adj)
+      for(GNode n: actual.adj)
       {
         if(n.status!=Status.VISITED)
         {
@@ -53,7 +51,7 @@ public class DepthFirstSearch
 
   }
 
-  private void visit(Node actual)
+  private void visit(GNode actual)
   {
     System.out.println(actual.value);
   }

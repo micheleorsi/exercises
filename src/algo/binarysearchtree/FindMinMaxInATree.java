@@ -10,7 +10,7 @@ public class FindMinMaxInATree
   @Test
   public void test()
   {
-    Node root = BSTBuilder.getRoot();
+    BSTNode root = BSTBuilder.getRoot();
 
     Assert.assertEquals(1,findMin(root));
     Assert.assertEquals(15,findMax(root));
@@ -19,9 +19,9 @@ public class FindMinMaxInATree
     Assert.assertEquals(15,findMaxIterative(root));
   }
 
-  private int findMaxIterative(Node node)
+  private int findMaxIterative(BSTNode node)
   {
-    Node temp = node;
+    BSTNode temp = node;
     int max = temp.value;
     while(temp!=null)
     {
@@ -31,9 +31,9 @@ public class FindMinMaxInATree
     return max;
   }
 
-  private int findMinIterative(Node node)
+  private int findMinIterative(BSTNode node)
   {
-    Node temp = node;
+    BSTNode temp = node;
     int min = temp.value;
     while(temp!=null)
     {
@@ -43,7 +43,7 @@ public class FindMinMaxInATree
     return min;
   }
 
-  private int findMax(Node node)
+  private int findMax(BSTNode node)
   {
     if(node.right==null)
     {
@@ -56,7 +56,7 @@ public class FindMinMaxInATree
   }
 
 
-  private int findMin(Node node)
+  private int findMin(BSTNode node)
   {
     if(node.left==null)
     {
