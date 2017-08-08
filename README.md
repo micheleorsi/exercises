@@ -7,10 +7,10 @@
 
 - [ ] heap sort
 - [X] [insertion sort](src/algo/sort/InsertionSort.java)
-- [X] merge sort
-- [X] quick sort
-- [X] selection sort
-- [X] bubble sort
+- [X] [merge sort](src/algo/sort/MergeSort.java)
+- [X] [quick sort](src/algo/sort/QuickSort.java)
+- [X] [selection sort](src/algo/sort/SelectionSort.java)
+- [X] [bubble sort](src/algo/sort/BubbleSort.java)
 - [ ] distribution sort
 - [ ] radix sort
 - [ ] shellsort
