@@ -6,7 +6,7 @@
 ## sort
 
 - [ ] heap sort
-- [X] insertion sort
+- [X] [insertion sort](algo/sort/InsertionSort.java)
 - [X] merge sort
 - [X] quick sort
 - [X] selection sort
@@ -145,11 +145,11 @@
 
 ## chap 4: sorting and searching
 
-- [ ] searching an item in an ordered list O(log n)
-- [ ] closest pair - given a set of n numbers, how do you find the pair of numbers that have the smallest difference between them? O(n log n)
-- [ ] element uniqueness O(n log n)
-- [ ] frequency distribution - given a set of n items, which element occurs the largest number of times in the set? If the items are sorted, we can sweep from left to right and count them, since all identical items will be lumped together during sorting.
-- [ ] selection - what is the kth largest item in an array?
+- [X] searching an item in an ordered list O(log n)
+- [X] closest pair - given a set of n numbers, how do you find the pair of numbers that have the smallest difference between them? O(n log n)
+- [X] element uniqueness: Are there any duplicates in a given set of n items? O(n log n)
+- [X] frequency distribution - given a set of n items, which element occurs the largest number of times in the set? If the items are sorted, we can sweep from left to right and count them, since all identical items will be lumped together during sorting.
+- [X] selection - what is the kth largest item in an array?
 - [ ] finding intersection: give an efficient algorithm to determine whether two sets (of size m and n, respectively) are disjoint 
 - [ ] the nuts and bolts problem - You are given a collection of n bolts of different widths, and n corresponding nuts. You can test whether a given nut and bolt fit together, from which you learn whether the nut is too large, too small, or an exact match for the bolt. The differences in size between pairs of nuts or bolts are too small to see by eye, so you cannot compare the sizes of two nuts or two bolts directly. You are to match each bolt to each nut. 
 - [ ] counting occurencies: count the number of times a given key k occurs in a given sorted array 

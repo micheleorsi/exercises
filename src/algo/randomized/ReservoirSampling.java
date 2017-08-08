@@ -5,39 +5,38 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number.
+ * Typically n is large enough that the list doesn't fit into main memory
+ */
 public class ReservoirSampling {
 
     // A function to randomly select k items from stream[0..n-1].
     void selectKItems(int stream[], int n, int k)
     {
-        int i;  // index for elements in stream[]
-
         // reservoir[] is the output array. Initialize it with
         // first k elements from stream[]
         int[] reservoir = new int[k];
-        for (i = 0; i < k; i++)
+        for (int i = 0; i < k; i++)
             reservoir[i] = stream[i];
 
         Random r = new Random();
 
         System.out.println("after "+k+": "+Arrays.toString(reservoir));
 
-        // Iterate from the (k+1)th element to nth element
-        while (i < n)
+        for(int j=k ; j<n; j++)
         {
-            // Pick a random index from 0 to i.
-            int j = r.nextInt(i+1);
+            int p = r.nextInt(j+1);
 
-            // If the randomly  picked index is smaller than k, then replace
-            // the element present at the index with new element from stream
-            if (j < k)
-                reservoir[j] = stream[i];
+            if(p<k)
+                reservoir[p] = stream[j];
 
             System.out.println("random "+j+": "+Arrays.toString(reservoir));
 
-            i++;
+
         }
-        System.out.println("after "+i+": "+Arrays.toString(reservoir));
+
+        System.out.println("after "+n+": "+Arrays.toString(reservoir));
     }
 
     @Test
