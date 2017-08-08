@@ -99,7 +99,7 @@
 
 ## backtracking
 
-- [X] [subsets](src/algo/SubsetAlgo.java)
+- [X] [subsets](src/backtracking/SubsetAlgo.java)
 - [ ] permutations
 - [ ] combination sum
 - [ ] palindrome partitioning
