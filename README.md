@@ -17,9 +17,9 @@
 
 ## linked list
 
-- [ ] search in a linked list
-- [ ] insertion in a linked list
-- [ ] deletion from a list
+- [ ] [search in a linked list](src/algo/linkedlist/SearchInALinkedList.java)
+- [ ] [insertion in a linked list](src/algo/linkedlist/InsertionInALinkedList.java)
+- [ ] [deletion from a list](src/algo/linkedlist/DeletionFromALinkedList.java)
 
 ## stack
 
@@ -41,11 +41,11 @@
 
 ## binary search tree
 
-- [ ] searching in a tree
-- [ ] find min/max in a tree
-- [ ] traversal in a tree
-- [ ] insertion in a tree
-- [ ] deleting from a tree
+- [ ] [searching in a tree](src/algo/binarysearchtree/SearchInATree.java)
+- [ ] [find min/max in a tree](src/algo/binarysearchtree/FindMinMaxInATree.java)
+- [ ] [traversal in a tree](src/algo/binarysearchtree/TraversalTree.java)
+- [ ] [insertion in a tree](src/algo/binarysearchtree/InsertionInATree.java)
+- [ ] [deleting from a tree](src/algo/binarysearchtree/DeletingFromATree.java)
 
 ## priority queues
 
@@ -135,7 +135,7 @@
 
 ## chap 2: algo analysis
 
-- [ ] string pattern matching
+- [X] [string pattern matching](src/algo/StringPatternMatching.java)
 - [X] [matrix multiplication](src/algo/MatrixMultiplication.java)
 - [X] [fast exponentiation](src/algo/FastExponentiation.java)
 
@@ -280,3 +280,25 @@
 - [ ] given a set of coin denominators, find the minimum number of coins to make a certain amount of change.
 - [ ] you are given an array of n numbers, each of which may be positive, negative, or zero. Give an efficient algorithm to identify the index positions i and j to the maximum sum of the ith through jth numbers.
 - [ ] observe that when you cut a character out of a magazine, the character on the reverse side of the page is also removed. Give an algorithm to determine whether you can generate a given string by pasting cutouts from a given magazine. Assume that you are given a function that will identify the character and its position on the reverse side of the page for any given character position
+
+# Java data structure performance
+
+## String
+- charAt(int index): O(1)
+
+## LinkedList
+- get(int index): O(n)
+- add(E element): O(1)
+- add(int index, E element): O(n)
+- remove(int index): O(n)
+- remove(): O(1)
+- poll(): O(1)
+
+## ArrayList
+- get(int index): O(1)
+- add(E element): O(1) amortized
+- add(int index, E element): is O(n)
+- remove(int index): O(n) 
+- remove(): O(n/2)
+- add(E element): O(n)
+

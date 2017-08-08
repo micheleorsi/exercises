@@ -24,15 +24,24 @@ public class DeletionFromALinkedList
     Assert.assertEquals(6,newHead.next.next.next.next.item);
     newHead = deleteFromLinkedList(1,head);
     Assert.assertEquals(2,newHead.item);
+
+    newHead = deleteFromLinkedList(1,null);
+    Assert.assertNull(newHead);
+    newHead = deleteFromLinkedList(1,n10);
+    Assert.assertNull(newHead);
   }
 
   Node deleteFromLinkedList(int elem, Node head)
   {
-    Node n = head;
+    if(head==null || head.next==null)
+    {
+      return null;
+    }
     if(head.item==elem)
     {
       return head.next;
     }
+    Node n = head;
     while(n.next!=null)
     {
       if(n.next.item==elem)
