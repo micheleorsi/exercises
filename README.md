@@ -6,7 +6,7 @@
 ## sort
 
 - [ ] heap sort
-- [X] [insertion sort](algo/sort/InsertionSort.java)
+- [X] [insertion sort](src/algo/sort/InsertionSort.java)
 - [X] merge sort
 - [X] quick sort
 - [X] selection sort
