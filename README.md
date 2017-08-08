@@ -1,7 +1,7 @@
 
 # ALGORITHMS
 
-- [X] [binary search](src/algo/BinarySort.java)
+- [X] [binary search](src/algo/BinarySearch.java)
 
 ## sort
 
