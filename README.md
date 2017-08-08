@@ -1,7 +1,7 @@
 
 # ALGORITHMS
 
-- [X] binary search
+- [X] [binary search](src/algo/BinarySort.java)
 
 ## sort
 
@@ -99,7 +99,7 @@
 
 ## backtracking
 
-- [X] subsets
+- [X] [subsets](src/algo/SubsetAlgo.java)
 - [ ] permutations
 - [ ] combination sum
 - [ ] palindrome partitioning
@@ -119,11 +119,11 @@
 
 ## dynamic programming
 
-- [X] knapsack problem
+- [X] [knapsack problem](src/algo/dynamicprogramming/Knapsack.java)
 
 ## randomized algo
 
-- [ ] reservoir sampling
+- [X] [reservoir sampling](src/algo/randomized/ReservoirSampling.java)
 
 # PROBLEMS
 
@@ -136,8 +136,8 @@
 ## chap 2: algo analysis
 
 - [ ] string pattern matching
-- [X] matrix multiplication
-- [X] fast exponentiation
+- [X] [matrix multiplication](src/algo/MatrixMultiplication.java)
+- [X] [fast exponentiation](src/algo/FastExponentiation.java)
 
 ## chap 3: data structure
 
@@ -220,7 +220,7 @@
 
 ## chap 1
 
-- [X] integer division without using either the / or * operators.
+- [X] [integer division without using either the / or * operators](src/problems/IntegerDivision.java)
 - [X] on average, how many times would you have to flip open the Manhattan phone book at random in order to find a specific name?
 - [ ] Implement the two TSP heuristics of Section 1.1 (page 5). Which of them gives better-quality solutions in practice? Can you devise a heuristic that works better than both of them'?
 
