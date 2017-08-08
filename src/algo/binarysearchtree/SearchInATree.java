@@ -6,8 +6,6 @@ import org.junit.Test;
 public class SearchInATree
 {
 
-
-
   @Test
   public void test()
   {
