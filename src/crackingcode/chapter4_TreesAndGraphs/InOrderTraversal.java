@@ -12,7 +12,7 @@ public class InOrderTraversal
 
   }
 
-  public void inOrderTraversal(BinaryNode n)
+  public void inOrderTraversal(BNode n)
   {
     if(n!=null)
     {
@@ -22,7 +22,7 @@ public class InOrderTraversal
     }
   }
 
-  public void preOrderTraversal(BinaryNode n)
+  public void preOrderTraversal(BNode n)
   {
     if(n!=null)
     {
@@ -32,7 +32,7 @@ public class InOrderTraversal
     }
   }
 
-  public void postOrderTraversal(BinaryNode n)
+  public void postOrderTraversal(BNode n)
   {
     if(n!=null)
     {
