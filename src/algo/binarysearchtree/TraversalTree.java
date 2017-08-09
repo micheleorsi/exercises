@@ -18,9 +18,9 @@ public class TraversalTree
   {
     System.out.println("order traversal");
     orderTraversal(BSTBuilder.getRoot());
-    System.out.println("pre-order traversal");
+    System.out.println("\npre-order traversal");
     preorderTraversal(BSTBuilder.getRoot());
-    System.out.println("post-order traversal");
+    System.out.println("\npost-order traversal");
     postorderTraversal(BSTBuilder.getRoot());
   }
 

@@ -1,5 +1,8 @@
 package algo.binarysearchtree;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 public class BSTBuilder
 {
   /**
@@ -48,5 +51,30 @@ public class BSTBuilder
     root.left = four;
     root.right = twelve;
     return root;
+  }
+
+  /**
+   *            8
+   *        /       \
+   *       4         12
+   *    /    \     /    \
+   *   2     6    10    14
+   *  / \   / \  / \   /   \
+   * 1  3  5  7 9  11 13  15
+   */
+  @Test
+  public void test()
+  {
+    BSTNode head = BSTBuilder.getRoot();
+    Assert.assertEquals(8,head.value);
+    Assert.assertEquals(4,head.left.value);
+    Assert.assertEquals(2,head.left.left.value);
+    Assert.assertEquals(1,head.left.left.left.value);
+
+    Assert.assertEquals(12,head.right.value);
+    Assert.assertEquals(14,head.right.right.value);
+    Assert.assertEquals(15,head.right.right.right.value);
+
+    Assert.assertEquals(6,head.left.right.value);
   }
 }

@@ -27,17 +27,17 @@ public class InsertionInATree
 
   }
 
-  private BSTNode insert(int num, BSTNode node, BSTNode parent)
+  private BSTNode insert(int num, BSTNode actual, BSTNode parent)
   {
-    if(node==null)
+    if(actual==null)
     {
       return new BSTNode(num,parent,null,null);
-    } else if(num>node.value) {
-      node.right = insert(num,node.right,node);
+    } else if(num>actual.value) {
+      actual.right = insert(num,actual.right,actual);
     }
-    else if(num<node.value){
-      node.left = insert(num, node.left,node);
+    else if(num<actual.value){
+      actual.left = insert(num, actual.left,actual);
     }
-    return node;
+    return actual;
   }
 }
