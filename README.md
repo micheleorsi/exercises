@@ -17,9 +17,9 @@
 
 ## linked list
 
-- [ ] [search in a linked list](src/algo/linkedlist/SearchInALinkedList.java)
-- [ ] [insertion in a linked list](src/algo/linkedlist/InsertionInALinkedList.java)
-- [ ] [deletion from a list](src/algo/linkedlist/DeletionFromALinkedList.java)
+- [X] [search in a linked list](src/algo/linkedlist/SearchInALinkedList.java)
+- [X] [insertion in a linked list](src/algo/linkedlist/InsertionInALinkedList.java)
+- [X] [deletion from a list](src/algo/linkedlist/DeletionFromALinkedList.java)
 
 ## stack
 
@@ -41,11 +41,12 @@
 
 ## binary search tree
 
-- [ ] [searching in a tree](src/algo/binarysearchtree/SearchInATree.java)
-- [ ] [find min/max in a tree](src/algo/binarysearchtree/FindMinMaxInATree.java)
-- [ ] [traversal in a tree](src/algo/binarysearchtree/TraversalTree.java)
-- [ ] [insertion in a tree](src/algo/binarysearchtree/InsertionInATree.java)
-- [ ] [deleting from a tree](src/algo/binarysearchtree/DeletingFromATree.java)
+- [X] [searching in a tree](src/algo/binarysearchtree/SearchInATree.java)
+- [X] [find min/max in a tree](src/algo/binarysearchtree/FindMinMaxInATree.java)
+- [X] [traversal in a tree](src/algo/binarysearchtree/TraversalTree.java)
+- [X] [insertion in a tree](src/algo/binarysearchtree/InsertionInATree.java)
+- [X] [deleting from a tree](src/algo/binarysearchtree/DeletingFromATree.java)
+- [X] [predecessor/successor](src/algo/binarysearchtree/DeletingFromATree.java)
 
 ## priority queues
 
@@ -55,10 +56,10 @@
 
 ## heap
 
-- [ ] build heap
-- [ ] extract min (bubble down)
-- [ ] heap in an array
-- [ ] insert in a heap (bubble up)
+- [ ] [build heap](src/algo/heap/HeapInArray.java)
+- [ ] [extract min (bubble down)](src/algo/heap/HeapInArray.java)
+- [ ] [heap in an array](src/algo/heap/HeapInArray.java)
+- [ ] [insert in a heap (bubble up)](src/algo/heap/HeapInArray.java)
 
 ## graph
 
@@ -202,15 +203,15 @@
 - [ ] set cover
 
 # THEOREM
-- [ ] 1 + 2 + 3 + 4 .. n = n(n+1)/2
-- [ ] (n-1) + (n-2) + (n-3) + .. + 2 + 1 = n(n-1)/2
-- [ ] 1 + 1/2 + 1/4 + 1/8 .. = ln n (< 2) (harmonic number) 
-- [ ] f(n) = O(g(n)) -> c such that f(n) is always < c * g(n), for large enough n
-- [ ] f(n) = Teta(g(n)) -> c1 and c2 such that f(n) is always > c2 * g(n) and < c1 * g(n), for large enough n
-- [ ] f(n) = Sigma(g(n)) -> c such that f(n) is always > c * g(n), for large enough n
-- [ ] log<sub>a</sub> (x*y) = log<sub>a</sub> x + log<sub>a</sub> y
-- [ ] log<sub>a</sub> n<sup>b</sup> = b * log<sub>a</sub> n, a<sup>b</sup> = exp(ln(a<sup>b</sup>)) = exp(b * ln a)
-- [ ] log<sub>a</sub> b = log<sub>c</sub> b / log<sub>c</sub> a
+- [X] 1 + 2 + 3 + 4 .. n = n(n+1)/2
+- [X] (n-1) + (n-2) + (n-3) + .. + 2 + 1 = n(n-1)/2
+- [X] 1 + 1/2 + 1/4 + 1/8 .. = ln n (< 2) (harmonic number) 
+- [X] f(n) = O(g(n)) -> c such that f(n) is always < c * g(n), for large enough n
+- [X] f(n) = Teta(g(n)) -> c1 and c2 such that f(n) is always > c2 * g(n) and < c1 * g(n), for large enough n
+- [X] f(n) = Sigma(g(n)) -> c such that f(n) is always > c * g(n), for large enough n
+- [X] log<sub>a</sub> (x*y) = log<sub>a</sub> x + log<sub>a</sub> y
+- [X] log<sub>a</sub> n<sup>b</sup> = b * log<sub>a</sub> n, a<sup>b</sup> = exp(ln(a<sup>b</sup>)) = exp(b * ln a)
+- [X] log<sub>a</sub> b = log<sub>c</sub> b / log<sub>c</sub> a
 - [ ] polynomial recurrence: An = n -> An = An-1 +1, A1 = 1
 - [ ] exponential recurrence: An = 2<sup>(n-1)</sup> -> An = 2An-1, A1 = 1
 - [ ] factorial recurrence: An = n! -> An = nAn-1, A1 = 1
@@ -220,6 +221,8 @@
 
 ## chap 1
 
+
+- [ ] The knapsack problem is as follows: given a set of integers S = {si, s2, ... , sn}, and a target number T, find a subset of S which adds up exactly to T. For example, there exists a subset within S = {1, 2, 5, 9, 10} that adds up to T = 22 but not T=23.
 - [X] [integer division without using either the / or * operators](src/problems/IntegerDivision.java)
 - [X] on average, how many times would you have to flip open the Manhattan phone book at random in order to find a specific name?
 - [ ] Implement the two TSP heuristics of Section 1.1 (page 5). Which of them gives better-quality solutions in practice? Can you devise a heuristic that works better than both of them'?
@@ -238,6 +241,7 @@
 - [ ] reconsider the pirate problem above, where only one indivisible dollar is to be divided. Who gets the dollar and how many are killed? 
 
 ## chap 3: data structure
+
 
 - [ ] what method would you use to look up a word in a dictionary?
 - [ ] imagine you have a closet full of shirts. What can you do to organize your shirts for easy retrieval?
