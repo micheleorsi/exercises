@@ -64,11 +64,11 @@
 ## graph
 
 - [ ] traversing a graph
-- [ ] [bread first search](sr/algo/graph/BreadFirstSearch.java)
+- [ ] [bread first search](src/algo/graph/BreadFirstSearch.java)
 - [ ] bfs: finding paths
 - [ ] bfs: connected component
 - [ ] bfs: two-coloring graphs
-- [ ] [depth first search](sr/algo/graph/DepthFirstSearch.java)
+- [ ] [depth first search](src/algo/graph/DepthFirstSearch.java)
 - [ ] dps: finding cycles
 - [ ] dps: articulation vertices
 - [ ] depth first search on directed graphs
