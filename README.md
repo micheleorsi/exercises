@@ -64,11 +64,11 @@
 ## graph
 
 - [ ] traversing a graph
-- [ ] bread first search
+- [ ] [bread first search](sr/algo/graph/BreadFirstSearch.java)
 - [ ] bfs: finding paths
 - [ ] bfs: connected component
 - [ ] bfs: two-coloring graphs
-- [ ] depth first search
+- [ ] [depth first search](sr/algo/graph/DepthFirstSearch.java)
 - [ ] dps: finding cycles
 - [ ] dps: articulation vertices
 - [ ] depth first search on directed graphs
@@ -206,6 +206,7 @@
 - [X] 1 + 2 + 3 + 4 .. n = n(n+1)/2
 - [X] (n-1) + (n-2) + (n-3) + .. + 2 + 1 = n(n-1)/2
 - [X] 1 + 1/2 + 1/4 + 1/8 .. = ln n (< 2) (harmonic number) 
+- [X] 2<sup>0</sup> + 2<sup>1</sup> + 2<sup>2</sup> +  .. =  2<sup>n+1</sup>-1
 - [X] f(n) = O(g(n)) -> c such that f(n) is always < c * g(n), for large enough n
 - [X] f(n) = Teta(g(n)) -> c1 and c2 such that f(n) is always > c2 * g(n) and < c1 * g(n), for large enough n
 - [X] f(n) = Sigma(g(n)) -> c such that f(n) is always > c * g(n), for large enough n
@@ -216,6 +217,9 @@
 - [ ] exponential recurrence: An = 2<sup>(n-1)</sup> -> An = 2An-1, A1 = 1
 - [ ] factorial recurrence: An = n! -> An = nAn-1, A1 = 1
 - [ ] master algorithm - T(n) = aT(n/b) + f(n), depending on f(n)
+- [ ] how many ways are there of rearranging a string of n unique characters? n!
+- [ ] suppose you have a set of n distinct characters. How many ways are there of selecting k characters into a new set (where order doesn't matter)? That is, how many k-sized subsets out of n distinct elements? This is what the expression n-choose-k means
+- [ ] 
 
 # INTERVIEW QUESTIONS
 
