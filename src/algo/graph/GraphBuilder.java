@@ -15,11 +15,11 @@ public class GraphBuilder
     GNode seven = new GNode(7);
     one.adj = Arrays.asList(two);
     two.adj = Arrays.asList(five,three,six);
-    three.adj = Arrays.asList(four,seven);
-    four.adj = Arrays.asList(five);
-    five.adj = Arrays.asList();
-    six.adj = Arrays.asList();
-    seven.adj = Arrays.asList();
+    three.adj = Arrays.asList(two,four,seven);
+    four.adj = Arrays.asList(three,five);
+    five.adj = Arrays.asList(two,four);
+    six.adj = Arrays.asList(two);
+    seven.adj = Arrays.asList(three);
 
     Graph g = new Graph();
     g.nodes = Arrays.asList(one,two,three,four,five,six,seven);

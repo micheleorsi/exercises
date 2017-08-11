@@ -10,7 +10,6 @@ public class DepthFirstSearch
   public void test()
   {
     Graph g = GraphBuilder.build();
-    System.out.print("A: ");
     searchStack(g,g.nodes.get(0));
     System.out.println("\nE: 1, 2, 6, 3, 7, 4, 5");
   }
@@ -33,10 +32,10 @@ public class DepthFirstSearch
     {
       // extract last from the stack
       GNode actual = stack.pop();
-      // visit if it is not already visited
+      // process if it is not already visited
       if(actual.status== GNode.Status.DISCOVERED)
       {
-        visit(actual);
+        process(actual);
         actual.status= GNode.Status.PROCESSED;
       }
       // loop through all the other one
@@ -47,13 +46,23 @@ public class DepthFirstSearch
           stack.push(n);
           n.status= GNode.Status.DISCOVERED;
         }
+        if(n.status!= GNode.Status.PROCESSED)
+        {
+          processEdge(actual, n);
+        }
       }
     }
 
   }
 
-  private void visit(GNode actual)
+  private void process(GNode actual)
   {
-    System.out.print(actual.value+", ");
+    System.out.println(actual.value);
   }
+
+  private void processEdge(GNode node1, GNode node2)
+  {
+    System.out.println("edge: "+node1+" - "+node2);
+  }
+
 }
