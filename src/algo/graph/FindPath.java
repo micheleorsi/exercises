@@ -1,6 +1,5 @@
 package algo.graph;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -23,8 +22,9 @@ public class FindPath
     @Test
     public void testFindPath()
     {
-        Graph g = GraphBuilder.build();
+        GraphGNode g = GraphBuilder.build();
         List<GNode> list = new LinkedList<>();
+        g.init();
         findPath(g,g.nodes.get(1),g.nodes.get(6),list);
 
         System.out.println("Path");
@@ -34,12 +34,7 @@ public class FindPath
         }
     }
 
-    void findPath(Graph g, GNode head,GNode last, List<GNode> list) {
-        // init all the nods to UNDISCOVERED
-        for (GNode n : g.nodes) {
-            n.status = GNode.Status.UNDISCOVERED;
-        }
-
+    void findPath(GraphGNode g, GNode head, GNode last, List<GNode> path) {
         // init queue
         Queue<GNode> queue = new LinkedList<>();
         // add root to the queue (at the end)
@@ -73,13 +68,11 @@ public class FindPath
             }
         }
 
-        GNode toFind = last;
-        while(toFind.parent!=null)
+        while(last!=null)
         {
-            list.add(toFind);
-            toFind = toFind.parent;
+            path.add(last);
+            last = last.parent;
         }
-        list.add(toFind);
     }
 
     private void findPath(GNode gNode1, GNode gNode2) {

@@ -22,7 +22,14 @@ public class BreadFirstSearch
   @Test
   public void test()
   {
-    Graph g = GraphBuilder.build();
+    GraphGNode g = GraphBuilder.build();
+    g.init();
+
+    for(GNode node: g.nodes)
+    {
+      Assert.assertEquals(GNode.Status.UNDISCOVERED,node.status);
+    }
+
     search(g,g.nodes.get(0));
 
     Assert.assertEquals(1,expectedSequence.get(0).value);
@@ -39,13 +46,8 @@ public class BreadFirstSearch
     }
   }
 
-  void search(Graph g, GNode head)
+  void search(GraphGNode g, GNode head)
   {
-    // init all the nods to UNDISCOVERED
-    for(GNode n: g.nodes) {
-      n.status = GNode.Status.UNDISCOVERED;
-    }
-
     // init queue
     Queue<GNode> queue = new LinkedList<>();
     // add root to the queue (at the end)
@@ -80,15 +82,15 @@ public class BreadFirstSearch
     }
   }
 
-  private void process(GNode actual)
+  void process(GNode actual)
   {
-    System.out.println("process: "+actual.value);
+//    System.out.println("process: "+actual.value);
     expectedSequence.add(actual);
   }
 
-  private void processEdge(GNode node1, GNode node2)
+  void processEdge(GNode node1, GNode node2)
   {
-    System.out.println("edge: "+node1+" - "+node2);
+//    System.out.println("edge: "+node1+" - "+node2);
   }
 
 }
