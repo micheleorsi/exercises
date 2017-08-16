@@ -3,6 +3,8 @@ package algo.graph;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.LinkedList;
+
 public class ConnectedComponent
 {
     @Test
@@ -18,7 +20,7 @@ public class ConnectedComponent
 
     int connectedComponents(GraphGNode g)
     {
-        BreadFirstSearch bfs = new BreadFirstSearch();
+        BFS bfs = new BFS(new LinkedList<>(),new LinkedList<>());
         int cccount = 0;
         for(GNode n: g.nodes) {
             if(n.status== GNode.Status.UNDISCOVERED)

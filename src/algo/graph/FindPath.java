@@ -22,7 +22,7 @@ public class FindPath
     @Test
     public void testFindPath()
     {
-        GraphGNode g = GraphBuilder.build();
+        GraphGNode g = GraphBuilder.buildWithCycle();
         List<GNode> list = new LinkedList<>();
         g.init();
         findPath(g,g.nodes.get(1),g.nodes.get(6),list);
