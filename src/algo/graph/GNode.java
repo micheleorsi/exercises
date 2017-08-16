@@ -8,6 +8,8 @@ class GNode
   List<GNode> adj;
   Status status;
   GNode parent;
+  int entryTime;
+  int exitTime;
 
   public GNode(int value)
   {
@@ -19,6 +21,9 @@ class GNode
     return "GNode{" +
             "value=" + value +
             ", status=" + status +
+            ", entrytime=" +entryTime+
+            ", exittime=" +exitTime+
+            ", parent=" +(parent!=null ? parent.value : null)+
             '}';
   }
 
