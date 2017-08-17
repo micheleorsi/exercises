@@ -22,7 +22,7 @@ public class FindPath
     @Test
     public void testFindPath()
     {
-        GraphGNode g = GraphBuilder.buildWithCycle();
+        Graph<GNode> g = Graph.Builder.buildWithCycle();
         List<GNode> list = new LinkedList<>();
         g.init();
         findPath(g,g.nodes.get(1),g.nodes.get(6),list);
@@ -34,7 +34,7 @@ public class FindPath
         }
     }
 
-    void findPath(GraphGNode g, GNode head, GNode last, List<GNode> path) {
+    <T> void findPath(Graph g, GNode<T> head, GNode<T> last, List<GNode> path) {
         // init queue
         Queue<GNode> queue = new LinkedList<>();
         // add root to the queue (at the end)
@@ -44,7 +44,7 @@ public class FindPath
         // while the queue is not empty
         while (!queue.isEmpty()) {
             // extract first from the queue
-            GNode actual = queue.remove();
+            GNode<T> actual = queue.remove();
             // process
             if (actual.status == GNode.Status.DISCOVERED) {
 //                process(actual);

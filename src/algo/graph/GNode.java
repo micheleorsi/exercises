@@ -2,16 +2,19 @@ package algo.graph;
 
 import java.util.List;
 
-class GNode
-{
-  int value;
+interface IGNode<T> {
+  T getValue();
+}
+
+class GNode<T> implements IGNode<T> {
+  Object value;
   List<GNode> adj;
   Status status;
   GNode parent;
   int entryTime;
   int exitTime;
 
-  public GNode(int value)
+  public GNode(T value)
   {
     this.value = value;
   }
@@ -23,8 +26,13 @@ class GNode
             ", status=" + status +
             ", entrytime=" +entryTime+
             ", exittime=" +exitTime+
-            ", parent=" +(parent!=null ? parent.value : null)+
+            ", parent=" +(parent!=null ? parent.getValue() : null)+
             '}';
+  }
+
+  @Override
+  public T getValue() {
+    return (T) value;
   }
 
   enum Status

@@ -20,7 +20,7 @@ public class BreadFirstSearch
   @Test
   public void test()
   {
-    GraphGNode g = GraphBuilder.buildWithCycle();
+    Graph<GNode> g = Graph.Builder.buildWithCycle();
     g.init();
 
     for(GNode node: g.nodes)
@@ -70,7 +70,7 @@ class BFS extends AbstractGS {
   }
 
   @Override
-  public void search(GraphGNode g, GNode head)
+  public <T> void search(Graph g, GNode<T> head)
   {
     // init queue
     Queue<GNode> queue = new LinkedList<>();
@@ -81,7 +81,7 @@ class BFS extends AbstractGS {
     // while the queue is not empty
     while (!queue.isEmpty()) {
       // extract first from the queue
-      GNode actual = queue.remove();
+      GNode<T> actual = queue.remove();
 
       // process early
       processEarly(nodeSeq,actual);

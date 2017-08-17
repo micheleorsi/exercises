@@ -10,7 +10,7 @@ public class ConnectedComponent
     @Test
     public void test()
     {
-        GraphGNode g = GraphBuilder.buildConnectedComponent();
+        Graph<GNode> g = Graph.Builder.buildConnectedComponent();
         g.init();
 
         int connectedComponents = connectedComponents(g);
@@ -18,7 +18,7 @@ public class ConnectedComponent
         Assert.assertEquals(3,connectedComponents);
     }
 
-    int connectedComponents(GraphGNode g)
+    int connectedComponents(Graph<GNode> g)
     {
         BFS bfs = new BFS(new LinkedList<>(),new LinkedList<>());
         int cccount = 0;

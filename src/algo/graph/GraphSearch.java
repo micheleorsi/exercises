@@ -4,12 +4,12 @@ import java.util.List;
 
 public interface GraphSearch {
 
-    void search(GraphGNode g, GNode actual);
+    <T> void search(Graph g, GNode<T> actual);
 
-    void processEarly(List<GNode> nodeSeq, GNode actual);
+    <T> void processEarly(List<GNode> nodeSeq, GNode<T> actual);
 
-    void processLate(List<GNode> nodeSeq, GNode actual);
+    <T> void processLate(List<GNode> nodeSeq, GNode<T> actual);
 
-    void processEdge(List<String> edgeSeq, GNode node1, GNode node2);
+    <T> void processEdge(List<String> edgeSeq, GNode<T> node1, GNode<T> node2);
 
 }

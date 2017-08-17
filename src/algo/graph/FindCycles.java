@@ -11,7 +11,7 @@ public class FindCycles
     @Test
     public void testWithCycle()
     {
-        GraphGNode graph = GraphBuilder.buildWithCycle();
+        Graph<GNode> graph = Graph.Builder.buildWithCycle();
         graph.init();
 
         FC fc = new FC(new LinkedList<>(),new LinkedList<>());
@@ -24,7 +24,7 @@ public class FindCycles
     @Test
     public void testWithoutCycle()
     {
-        GraphGNode graph = GraphBuilder.buildWithoutCycle();
+        Graph<GNode> graph = Graph.Builder.buildWithoutCycle();
         graph.init();
 
         FC fc = new FC(new LinkedList<>(),new LinkedList<>());
@@ -42,7 +42,7 @@ class FC extends DFSRecursive {
     }
 
     @Override
-    public void processEdge(List<String> edgeSeq, GNode node1, GNode node2) {
+    public <T> void processEdge(List<String> edgeSeq, GNode<T> node1, GNode<T> node2) {
         super.processEdge(edgeSeq, node1, node2);
         if(node2.status== GNode.Status.DISCOVERED && node1.parent!=node2) {
             System.out.println("cycle from "+node1.value+" to "+node2.value);

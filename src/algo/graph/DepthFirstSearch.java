@@ -11,7 +11,7 @@ import java.util.Stack;
 
 public class DepthFirstSearch
 {
-  GraphGNode g;
+  Graph<GNode> g;
   List<GNode> nodeSeq;
   List<String> edgeSeq;
 
@@ -21,7 +21,7 @@ public class DepthFirstSearch
     nodeSeq = new LinkedList<>();
     edgeSeq = new LinkedList<>();
 
-    g = GraphBuilder.buildWithCycle();
+    g = Graph.Builder.buildWithCycle();
     g.init();
 
     for(GNode node: g.nodes)
@@ -132,7 +132,7 @@ class DFSRecursive extends AbstractGS {
   }
 
   @Override
-  public void search(GraphGNode g, GNode actual)
+  public <T> void search(Graph g, GNode<T> actual)
   {
     if(isFinished)
       return;
@@ -177,7 +177,7 @@ class DFSStack extends AbstractGS {
   }
 
   @Override
-  public void search(GraphGNode g, GNode head)
+  public <T> void search(Graph g, GNode<T> head)
   {
 
     // init stack
@@ -190,7 +190,7 @@ class DFSStack extends AbstractGS {
     while(!stack.isEmpty())
     {
       // extract last from the stack
-      GNode actual = stack.pop();
+      GNode<T> actual = stack.pop();
       // process if it is not already visited
       processEarly(nodeSeq,actual);
       actual.status= GNode.Status.PROCESSED;
@@ -210,8 +210,6 @@ class DFSStack extends AbstractGS {
         }
       }
 
-      // process late
-      processLate(nodeSeq,actual);
 
     }
 

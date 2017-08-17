@@ -1,8 +1,6 @@
 package algo.graph;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -14,7 +12,7 @@ public class TopologicalSort {
 
     @Test(expected = RuntimeException.class)
     public void testWithCycle() {
-        GraphGNode g = GraphBuilder.buildDAGWithCycle();
+        Graph<GNode> g = Graph.Builder.buildDAGWithCycle();
         g.init();
 
         for(GNode node: g.nodes)
@@ -33,7 +31,7 @@ public class TopologicalSort {
 
     @Test
     public void test() {
-        GraphGNode g = GraphBuilder.buildDAGWith1TopologicalSort();
+        Graph<GNode> g = Graph.Builder.buildDAGWith1TopologicalSort();
         g.init();
 
         for(GNode node: g.nodes)
@@ -51,21 +49,19 @@ public class TopologicalSort {
         Assert.assertEquals(10, edgeOrder.size());
         Assert.assertEquals(7, nodeOrder.size());
 
-
         // G, A, B, C, F, E, D
-        // 7, 1, 2, 3, 6, 5, 4
 
-        Assert.assertEquals(4, nodeOrder.get(0).value);
-        Assert.assertEquals(5, nodeOrder.get(1).value);
-        Assert.assertEquals(6, nodeOrder.get(2).value);
-        Assert.assertEquals(3, nodeOrder.get(3).value);
-        Assert.assertEquals(2, nodeOrder.get(4).value);
-        Assert.assertEquals(1, nodeOrder.get(5).value);
-        Assert.assertEquals(7, nodeOrder.get(6).value);
+        Assert.assertEquals("d", nodeOrder.get(0).value);
+        Assert.assertEquals("e", nodeOrder.get(1).value);
+        Assert.assertEquals("f", nodeOrder.get(2).value);
+        Assert.assertEquals("c", nodeOrder.get(3).value);
+        Assert.assertEquals("b", nodeOrder.get(4).value);
+        Assert.assertEquals("a", nodeOrder.get(5).value);
+        Assert.assertEquals("g", nodeOrder.get(6).value);
 
     }
 
-    void topsort(GraphGNode g) {
+    void topsort(Graph<GNode> g) {
         int i=0;
 
         for(GNode n: g.nodes) {
@@ -83,18 +79,17 @@ class TS extends DFSRecursive {
     }
 
     @Override
-    public void processEarly(List<GNode> nodeSeq, GNode actual) {
-
+    public <T> void processEarly(List<GNode> nodeSeq, GNode<T> actual) {
     }
 
     @Override
-    public void processLate(List<GNode> nodeSeq, GNode actual) {
+    public <T> void processLate(List<GNode> nodeSeq, GNode<T> actual) {
         super.processLate(nodeSeq, actual);
         nodeSeq.add(actual);
     }
 
     @Override
-    public void processEdge(List<String> edgeSeq, GNode node1, GNode node2) {
+    public <T> void processEdge(List<String> edgeSeq, GNode<T> node1, GNode<T> node2) {
         super.processEdge(edgeSeq, node1, node2);
 
         if(node2.status== GNode.Status.DISCOVERED) {
