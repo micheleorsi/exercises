@@ -4,12 +4,19 @@ import java.util.List;
 
 public abstract class AbstractGS implements GraphSearch {
 
-  public void process(List<GNode> nodeSeq, GNode actual)
+  @Override
+  public void processEarly(List<GNode> nodeSeq, GNode actual)
   {
-    System.out.println(actual.value);
+    System.out.println("early: "+actual.value);
     nodeSeq.add(actual);
   }
 
+  @Override
+  public void processLate(List<GNode> nodeSeq, GNode actual) {
+    System.out.println("late: "+actual.value);
+  }
+
+  @Override
   public void processEdge(List<String> edgeSeq, GNode node1, GNode node2)
   {
     System.out.println("edge: "+node1+" - "+node2);

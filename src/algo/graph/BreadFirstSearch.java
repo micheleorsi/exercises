@@ -82,12 +82,11 @@ class BFS extends AbstractGS {
     while (!queue.isEmpty()) {
       // extract first from the queue
       GNode actual = queue.remove();
-      // process
-      if(actual.status==GNode.Status.DISCOVERED)
-      {
-        process(nodeSeq,actual);
-        actual.status=GNode.Status.PROCESSED;
-      }
+
+      // process early
+      processEarly(nodeSeq,actual);
+      actual.status=GNode.Status.PROCESSED;
+
       // loop through all the other one
       for(GNode n: actual.adj)
       {
@@ -103,6 +102,10 @@ class BFS extends AbstractGS {
           n.status=GNode.Status.DISCOVERED;
         }
       }
+
+      // process late
+      processLate(nodeSeq,actual);
+
     }
   }
 }

@@ -5,6 +5,60 @@ import java.util.Arrays;
 public class GraphBuilder
 {
   /**
+   *      B --------> D
+   *      ^ \         ^
+   *      |  v        |
+   *      A -> C ---> E
+   *      ^      \    ^
+   *      |       v  /
+   *      G -----> F
+   */
+  static GraphGNode buildDAGWith1TopologicalSort() {
+    GNode a = new GNode(1);
+    GNode b = new GNode(2);
+    GNode c = new GNode(3);
+    GNode d = new GNode(4);
+    GNode e = new GNode(5);
+    GNode f = new GNode(6);
+    GNode g = new GNode(7);
+
+    a.adj = Arrays.asList(b,c);
+    b.adj = Arrays.asList(c,d);
+    c.adj = Arrays.asList(e,f);
+    d.adj = Arrays.asList();
+    e.adj = Arrays.asList(d);
+    f.adj = Arrays.asList(e);
+    g.adj = Arrays.asList(a,f);
+
+    GraphGNode graph = new GraphGNode();
+    graph.isDirected=true;
+    graph.nodes = Arrays.asList(a,b,c,d,e,f,g);
+    return graph;
+  }
+
+  static GraphGNode buildDAGWithCycle() {
+    GNode a = new GNode(1);
+    GNode b = new GNode(2);
+    GNode c = new GNode(3);
+    GNode d = new GNode(4);
+    GNode e = new GNode(5);
+    GNode f = new GNode(6);
+    GNode g = new GNode(7);
+
+    a.adj = Arrays.asList(b,c);
+    b.adj = Arrays.asList(c,d);
+    c.adj = Arrays.asList(e,f);
+    d.adj = Arrays.asList();
+    e.adj = Arrays.asList(d,f);
+    f.adj = Arrays.asList(e);
+    g.adj = Arrays.asList(a,f);
+
+    GraphGNode graph = new GraphGNode();
+    graph.isDirected=true;
+    graph.nodes = Arrays.asList(g,a,b,c,d,e,f);
+    return graph;
+  }
+  /**
    *                  1
    *                  |
    *            |-5 - 2 - 6

@@ -67,11 +67,11 @@
 - [ ] [bfs: finding paths](src/algo/graph/FindPath.java) O(|V|+|E|) = O(b<sup>d</sup>), b branching factor (average out-degree), d distance from start node
 - [ ] [bfs: connected component](src/algo/graph/ConnectedComponent.java) 
 - [ ] [bfs: two-coloring graphs](src/algo/graph/TwoColoringGraph.java)
-- [ ] [depth first search](src/algo/graph/DepthFirstSearch.java)
-- [ ] [dps: finding cycles](src/algo/graph/FindCycles.java)
+- [ ] [depth first search](src/algo/graph/DepthFirstSearch.java) time: O(|V|+|E|), space: O(|V|)
+- [ ] [dfs: finding cycles](src/algo/graph/FindCycles.java)
 - [ ] dps: articulation vertices
-- [ ] depth first search on directed graphs
-- [ ] topological sorting
+- [ ] dfs: on directed graphs
+- [ ] [dfs: topological sorting in DAG](src/algo/graph/FindCycles.java)
 - [ ] strongly connected components
 - [ ] topological sorting
 
