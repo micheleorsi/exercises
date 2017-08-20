@@ -2,7 +2,11 @@ package crackingcode.chapter4_TreesAndGraphs;
 
 public class BNode
 {
-  public String name;
+  public int value;
   public BNode left;
   public BNode right;
+
+  public BNode(int value) {
+    this.value = value;
+  }
 }
