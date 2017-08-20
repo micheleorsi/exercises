@@ -62,8 +62,6 @@ public class TopologicalSort {
     }
 
     void topsort(Graph<GNode> g) {
-        int i=0;
-
         for(GNode n: g.nodes) {
             if(n.status== GNode.Status.UNDISCOVERED) {
                 ts.search(g,n);

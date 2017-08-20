@@ -4,9 +4,9 @@ package algo.graph;
 import java.util.Arrays;
 import java.util.List;
 
-class Graph<T extends GNode>
+public class Graph<T extends GNode>
 {
-  List<T> nodes;
+  protected List<T> nodes;
   boolean isDirected;
 
   void init()

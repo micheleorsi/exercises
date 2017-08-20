@@ -6,10 +6,10 @@ interface IGNode<T> {
   T getValue();
 }
 
-class GNode<T> implements IGNode<T> {
+public class GNode<T> implements IGNode<T> {
   Object value;
-  List<GNode> adj;
-  Status status;
+  public List<GNode> adj;
+  public Status status;
   GNode parent;
   int entryTime;
   int exitTime;
@@ -35,7 +35,7 @@ class GNode<T> implements IGNode<T> {
     return (T) value;
   }
 
-  enum Status
+  public enum Status
   {
     UNDISCOVERED, DISCOVERED, PROCESSED;
   }
