@@ -9,6 +9,8 @@ import java.util.List;
 
 public class DinnerParty {
 
+    int stackCount=0;
+
     @Test
     public void test() {
         List<String> friends = Arrays.asList("1","2","3","4");
@@ -24,18 +26,21 @@ public class DinnerParty {
             System.out.println(strings);
         }
 
+        System.out.println(stackCount);
+
     }
 
     void recursion(List<String> friends, List<List<String>> all, List<String> temp, int tablesize, int idx) {
+        stackCount++;
         if (temp.size() == tablesize) {
             all.add(new ArrayList<>(temp));
         }
-        else if(idx<friends.size()) {
+        else if(idx<friends.size() && (temp.size()+(friends.size()-idx)>=tablesize)) {
 
              // add
-             List<String> level = new ArrayList<>(temp);
-             level.add(friends.get(idx));
-             recursion(friends, all, level, tablesize, idx + 1);
+             temp.add(friends.get(idx));
+             recursion(friends, all, temp, tablesize, idx + 1);
+             temp.remove(temp.size()-1);
 
              // don’t add
              recursion(friends, all, temp, tablesize, idx + 1);
