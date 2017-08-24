@@ -1,16 +1,12 @@
 package algo.backtracking;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 
 /**
  * Given a set of distinct integers, nums, return all possible subsets.
@@ -38,27 +34,36 @@ public class SubsetAlgo
   //subsets
   @Test
   public void threeElement() {
-    List<List<Integer>> subsets = subsets(new int[] { 3, 1, 2 });
+    List<Set<Integer>> subsets;
+    subsets = subsets(new int[] { 3, 1, 2 });
 
     assertNotNull(subsets);
-    subsets = new LinkedList<List<Integer>>(subsets);
     assertEquals(8, subsets.size());
-    for(List<Integer> actualList: subsets)
-    {
-      System.out.println(Arrays.toString(actualList.toArray()));
+
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList())));
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList(3))));
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList(3,1))));
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList(3,1,2))));
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList(3,2))));
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList(2))));
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList(1,2))));
+    Assert.assertTrue(subsets.contains(new HashSet<>(Arrays.asList(1))));
+
+    for (Set<Integer> subset : subsets) {
+      System.out.println(subset);
     }
   }
 
 
-  public List<List<Integer>> subsets(int[] nums) {
-    List<List<Integer>> list = new ArrayList<>();
+  public List<Set<Integer>> subsets(int[] nums) {
+    List<Set<Integer>> list = new ArrayList<>();
 //    Arrays.sort(nums);
     backtrack(list, new ArrayList<>(), nums, 0);
     return list;
   }
 
-  private void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start){
-    list.add(new ArrayList<>(tempList));
+  private void backtrack(List<Set<Integer>> list , List<Integer> tempList, int [] nums, int start){
+    list.add(new HashSet<>(tempList));
     for(int i = start; i < nums.length; i++){
       tempList.add(nums[i]);
       backtrack(list, tempList, nums, i + 1);
@@ -73,11 +78,14 @@ public class SubsetAlgo
 
     assertNotNull(subsets);
     subsets = new LinkedList<>(subsets);
-    assertEquals(7, subsets.size());
-    for(List<Integer> actualList: subsets)
-    {
-      System.out.println(Arrays.toString(actualList.toArray()));
-    }
+    assertEquals(6, subsets.size());
+
+    Assert.assertTrue(subsets.contains(new ArrayList<>(Arrays.asList())));
+    Assert.assertTrue(subsets.contains(new ArrayList<>(Arrays.asList(2))));
+    Assert.assertTrue(subsets.contains(new ArrayList<>(Arrays.asList(1))));
+    Assert.assertTrue(subsets.contains(new ArrayList<>(Arrays.asList(1,2,2))));
+    Assert.assertTrue(subsets.contains(new ArrayList<>(Arrays.asList(2,2))));
+    Assert.assertTrue(subsets.contains(new ArrayList<>(Arrays.asList(1,2))));
   }
 
   public List<List<Integer>> subsetsWithDuplicates(int[] nums) {
@@ -92,10 +100,31 @@ public class SubsetAlgo
     for(int i = start; i < nums.length; i++){
       if(i>start && nums[i] == nums[i-1]) continue; // skip duplicates
       tempList.add(nums[i]);
-      backtrack(list, tempList, nums, i + 1);
+      backtrackWithDuplicates(list, tempList, nums, i + 1);
       tempList.remove(tempList.size() - 1);
     }
   }
 
+}
 
+class ADMSubset extends Backtrack {
+  @Override
+  boolean isASolution(int[] a, int k, int n) {
+    return super.isASolution(a, k, n);
+  }
+
+  @Override
+  void backtrack(int[] a, int k, int input) {
+    super.backtrack(a, k, input);
+  }
+
+  @Override
+  void constructCandidate(int[] a, int k, int input) {
+    super.constructCandidate(a, k, input);
+  }
+
+  @Override
+  void processSolution(int[] a, int k, int input) {
+    super.processSolution(a, k, input);
+  }
 }
