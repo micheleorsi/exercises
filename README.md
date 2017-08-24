@@ -6,6 +6,15 @@
 ## sort
 
 - [ ] heap sort
+- [X] external sort: sorting 900 MB of data using only 100 MB of RAM
+
+1. Read 100 MB of the data in main memory and sort by some conventional method, like quicksort.
+2. Write the sorted data to disk.
+3. Repeat steps 1 and 2 until all of the data is in sorted 100 MB chunks (there are 900MB / 100MB = 9 chunks), which now need to be merged into one single output file.
+4. Read the first 10 MB (= 100MB / (9 chunks + 1)) of each sorted chunk into input buffers in main memory and allocate the remaining 10 MB for an output buffer. (In practice, it might provide better performance to make the output buffer larger and the input buffers slightly smaller.)
+5. Perform a 9-way merge and store the result in the output buffer. Whenever the output buffer fills, write it to the final sorted file and empty it. Whenever any of the 9 input buffers empties, fill it with the next 10 MB of its associated 100 MB sorted chunk until no more data from the chunk is available. This is the key step that makes external merge sort work externally -- because the merge algorithm only makes one pass sequentially through each of the chunks, each chunk does not have to be loaded completely; rather, sequential parts of the chunk can be loaded as needed.
+
+- [ ] bucket sort
 - [X] [insertion sort](src/algo/sort/InsertionSort.java)
 - [X] [merge sort](src/algo/sort/MergeSort.java)
 - [X] [quick sort](src/algo/sort/QuickSort.java)
@@ -13,7 +22,7 @@
 - [X] [bubble sort](src/algo/sort/BubbleSort.java)
 - [ ] distribution sort
 - [ ] radix sort
-- [ ] shellsort
+- [ ] shell sort
 
 ## linked list
 
@@ -64,7 +73,7 @@
 ## graph
 
 - [ ] [bread first search](src/algo/graph/BreadFirstSearch.java) O(|V|+|E|)
-- [ ] [bfs: finding paths](src/algo/graph/FindPath.java) O(|V|+|E|) = O(b<sup>d</sup>), b branching factor (average out-degree), d distance from start node
+- [ ] [bfs: find paths](src/algo/graph/FindPath.java) O(|V|+|E|) = O(b<sup>d</sup>), b branching factor (average out-degree), d distance from start node
 - [ ] [bfs: connected component](src/algo/graph/ConnectedComponent.java) 
 - [ ] [bfs: two-coloring graphs](src/algo/graph/TwoColoringGraph.java)
 - [ ] [depth first search](src/algo/graph/DepthFirstSearch.java) time: O(|V|+|E|), space: O(|V|)
@@ -72,6 +81,7 @@
 - [ ] dps: articulation vertices
 - [ ] dfs: on directed graphs
 - [ ] [dfs: topological sorting in DAG](src/algo/graph/FindCycles.java)
+- [ ] [dfs: topological sort real problem](src/crackingcode/chapter4_TreesAndGraphs/BuildOrder.java)
 - [ ] strongly connected components
 - [ ] topological sorting
 
@@ -124,6 +134,16 @@
 ## randomized algo
 
 - [X] [reservoir sampling](src/algo/randomized/ReservoirSampling.java)
+
+## advanced
+
+- [X] Red–black tree BST:
+
+1. Each node is either red or black
+2. The root is black. This rule is sometimes omitted. Since the root can always be changed from red to black, but not necessarily vice versa, this rule has little effect on analysis
+3. All leaves (NIL) are black.
+4. If a node is red, then both its children are black
+5. Every path from a given node to any of its descendant NIL nodes contains the same number of black nodes
 
 # PROBLEMS
 
@@ -202,6 +222,7 @@
 - [ ] set cover
 
 # THEOREM
+
 - [X] 1 + 2 + 3 + 4 .. n = n(n+1)/2
 - [X] (n-1) + (n-2) + (n-3) + .. + 2 + 1 = n(n-1)/2
 - [X] 1 + 1/2 + 1/4 + 1/8 .. = ln n (< 2) (harmonic number) 
@@ -218,7 +239,9 @@
 - [ ] master algorithm - T(n) = aT(n/b) + f(n), depending on f(n)
 - [ ] how many ways are there of rearranging a string of n unique characters? n!
 - [ ] suppose you have a set of n distinct characters. How many ways are there of selecting k characters into a new set (where order doesn't matter)? That is, how many k-sized subsets out of n distinct elements? This is what the expression n-choose-k means
-- [ ] 
+- [X] Bayes'Theorem: P(A | B) = P( B | A ) * P(A) / P(B)
+- [X] P(A and B) = P( B | A ) / P(A)
+- [X] P(A or B) = P(A) + P(B) - P(A and B)
 
 # INTERVIEW QUESTIONS
 
