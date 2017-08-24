@@ -96,8 +96,6 @@ public class BuildOrder {
     void dfs(Graph g, GNode<String> head, List<GNode<String>> buildOrder) {
         head.status = DISCOVERED;
 
-        // process early node
-
         for(GNode<String> n: head.adj) {
             if(n.status==UNDISCOVERED) {
                 n.status=DISCOVERED;
