@@ -314,21 +314,38 @@
 # Java data structure performance
 
 ## String
-- charAt(int index): O(1)
+- [X] charAt(int index): O(1)
 
 ## LinkedList
-- get(int index): O(n)
-- add(E element): O(1)
-- add(int index, E element): O(n)
-- remove(int index): O(n)
-- remove(): O(1)
-- poll(): O(1)
+- [X] get(int index): O(n)
+- [X] add(E element): O(1)
+- [X] add(int index, E element): O(n)
+- [X] remove(int index): O(n)
+- [X] remove(): O(1)
+- [X] poll(): O(1)
 
 ## ArrayList
-- get(int index): O(1)
-- add(E element): O(1) amortized
-- add(int index, E element): is O(n)
-- remove(int index): O(n) 
-- remove(): O(n/2)
-- add(E element): O(n)
+- [X] get(int index): O(1)
+- [X] add(E element): O(1) amortized
+- [X] add(int index, E element): is O(n)
+- [X] remove(int index): O(n) 
+- [X] remove(): O(n/2)
+- [X] add(E element): O(n)
 
+## HashMap
+- [X] lookup: O(1) 
+- [X] insertion: O(1)
+- [X] ordering arbitrary
+- [X] implemented by array of linked list
+
+## TreeMap
+- [X] lookup: O(log N) 
+- [X] insertion: O(log N)
+- [X] keys are ordered 
+- [X] implemented by a Red-BlackTree
+
+## LinkedHashMap
+- [X] loolup: O(1) 
+- [X] insertion: O(1)
+- [X] ordering by insertion order
+- [X] implemented by doubly-linked buckets
