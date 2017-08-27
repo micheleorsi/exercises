@@ -19,10 +19,19 @@ public class TwoColoringGraph
         g.init();
         twocolor(g);
         Assert.assertTrue(isBipartite);
-        for(TCNode node: g.nodes)
-        {
-            System.out.println(node);
-        }
+
+        Assert.assertEquals(Colour.WHITE,g.nodes.get(0).colour);
+        Assert.assertEquals(Colour.BLACK,g.nodes.get(1).colour);
+        Assert.assertEquals(Colour.BLACK,g.nodes.get(2).colour);
+        Assert.assertEquals(Colour.WHITE,g.nodes.get(3).colour);
+        Assert.assertEquals(Colour.WHITE,g.nodes.get(4).colour);
+        Assert.assertEquals(Colour.WHITE,g.nodes.get(5).colour);
+        Assert.assertEquals(Colour.BLACK,g.nodes.get(6).colour);
+        Assert.assertEquals(Colour.WHITE,g.nodes.get(7).colour);
+        Assert.assertEquals(Colour.WHITE,g.nodes.get(8).colour);
+        Assert.assertEquals(Colour.BLACK,g.nodes.get(9).colour);
+        Assert.assertEquals(Colour.WHITE,g.nodes.get(10).colour);
+        Assert.assertEquals(Colour.BLACK,g.nodes.get(11).colour);
     }
 
     @Test
@@ -32,10 +41,6 @@ public class TwoColoringGraph
         g.init();
         twocolor(g);
         Assert.assertFalse(isBipartite);
-        for(TCNode node: g.nodes)
-        {
-            System.out.println(node);
-        }
     }
 
     void twocolor(Graph<TCNode> g)
@@ -44,7 +49,6 @@ public class TwoColoringGraph
         {
             node.colour=Colour.UNCOLORED;
         }
-
         for(TCNode node: g.nodes)
         {
             if(node.status== GNode.Status.UNDISCOVERED)
@@ -59,13 +63,11 @@ public class TwoColoringGraph
     {
         Queue<TCNode> q = new LinkedList<>();
         q.add(n);
-
         while(!q.isEmpty())
         {
             TCNode<T> actual = q.remove();
             process(actual);
             actual.status = GNode.Status.PROCESSED;
-
             for(TCNode node:actual.adj)
             {
                 if(node.status!= GNode.Status.PROCESSED)
