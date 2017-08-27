@@ -1,10 +1,12 @@
 package algo.graph;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  *                  1
@@ -23,18 +25,18 @@ public class FindPath
     public void testFindPath()
     {
         Graph<GNode> g = Graph.Builder.buildWithCycle();
-        List<GNode> list = new LinkedList<>();
+        Stack<GNode> list = new Stack<>();
         g.init();
         findPath(g,g.nodes.get(1),g.nodes.get(6),list);
 
-        System.out.println("Path");
-        for(GNode n: list)
-        {
-            System.out.println(n.value);
+        int[] expectedOrder = new int[] {2,3,7};
+        for(int i=0; i<list.size(); i++) {
+            Assert.assertEquals(expectedOrder[i],list.pop().value);
         }
+
     }
 
-    <T> void findPath(Graph g, GNode<T> head, GNode<T> last, List<GNode> path) {
+    <T> void findPath(Graph g, GNode<T> head, GNode<T> last, Stack<GNode> path) {
         // init queue
         Queue<GNode> queue = new LinkedList<>();
         // add root to the queue (at the end)
@@ -67,10 +69,9 @@ public class FindPath
                 }
             }
         }
-
         while(last!=null)
         {
-            path.add(last);
+            path.push(last);
             last = last.parent;
         }
     }
