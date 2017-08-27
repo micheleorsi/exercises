@@ -71,6 +71,52 @@ public class SubsetAlgo
     }
   }
 
+  @Test
+  public void threeElementCombinatorial() {
+    List<List<Integer>> subsets;
+    int[] arr = {3, 1, 2};
+    subsets = subsetsCombin(arr);
+
+    assertNotNull(subsets);
+    assertEquals(8, subsets.size());
+
+    Assert.assertTrue(subsets.contains(Arrays.asList()));
+    Assert.assertTrue(subsets.contains(Arrays.asList(3)));
+    Assert.assertTrue(subsets.contains(Arrays.asList(3,1)));
+    Assert.assertTrue(subsets.contains(Arrays.asList(3,1,2)));
+    Assert.assertTrue(subsets.contains(Arrays.asList(3,2)));
+    Assert.assertTrue(subsets.contains(Arrays.asList(2)));
+    Assert.assertTrue(subsets.contains(Arrays.asList(1,2)));
+    Assert.assertTrue(subsets.contains(Arrays.asList(1)));
+
+  }
+
+  List<List<Integer>> subsetsCombin(int[] sum) {
+    int max = 1<< sum.length;
+    List<List<Integer>> subset = new ArrayList<>();
+    for(int i=0; i<max; i++) {
+      List<Integer> list = generateSubset(i,sum);
+      subset.add(list);
+    }
+    return subset;
+  }
+
+  private List<Integer> generateSubset(int i, int[] array) {
+    int idx = 0;
+    System.out.print("i: "+i+"("+Integer.toBinaryString(i)+") {"+Arrays.toString(array)+"} ");
+
+    List<Integer> actual = new ArrayList<>();
+    for(int k=i; k>0; k>>=1) {
+      if((k&1)==1) {
+        actual.add(array[idx]);
+      }
+      idx++;
+    }
+    System.out.println(actual);
+
+    return actual;
+  }
+
   // with duplicates
   @Test
   public void threeElementWithDuplicates() {
