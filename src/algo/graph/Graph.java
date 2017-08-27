@@ -107,11 +107,11 @@ public class Graph<T extends GNode>
     /**
      *                  1
      *                  |
-     *            |-5 - 2 - 6
-     *            |     |
-     *            |     3
-     *            |    / \
-     *            |---4  7
+     *             -5 - 2 - 6
+     *                  |
+     *                  3
+     *                 / \
+     *                4  7
      */
     static Graph buildWithoutCycle()
     {
