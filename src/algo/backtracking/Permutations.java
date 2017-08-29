@@ -1,7 +1,6 @@
 package algo.backtracking;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.*;
@@ -45,37 +44,6 @@ public class Permutations
     Assert.assertTrue(permutations1.contains(new ArrayList<>(Arrays.asList(2,1,3))));
 
   }
-
-  @Test
-  public void testString() {
-    String input = "cia";
-    List<String> result = stringPermutation(input);
-
-    Assert.assertEquals("cia",result.get(0));
-    Assert.assertEquals("cai",result.get(1));
-    Assert.assertEquals("ica",result.get(2));
-    Assert.assertEquals("iac",result.get(3));
-    Assert.assertEquals("aci",result.get(4));
-    Assert.assertEquals("aic",result.get(5));
-  }
-
-  List<String> stringPermutation(String str){
-    LinkedList<String> result = new LinkedList<>();
-    permutation("", str, result);
-    return result;
-  }
-
-  void permutation(String prefix, String str, List<String> result){
-    if(str.length()==0) result.add(prefix);
-
-    for(int i=0;i<str.length();i++){
-      String before=str.substring(0,i);
-      String after=str.substring(i+1);
-      char newPrefix = str.charAt(i);
-      permutation(prefix+ newPrefix, before+after, result);
-    }
-  }
-
 
   private List<List<Integer>> permutationsv1(int[] nums)
   {
@@ -136,19 +104,52 @@ public class Permutations
     }
   }
 
+  @Test
+  public void testString() {
+    String input = "cia";
+    List<String> result = stringPermutation(input);
+
+    Assert.assertEquals("cia",result.get(0));
+    Assert.assertEquals("cai",result.get(1));
+    Assert.assertEquals("ica",result.get(2));
+    Assert.assertEquals("iac",result.get(3));
+    Assert.assertEquals("aci",result.get(4));
+    Assert.assertEquals("aic",result.get(5));
+  }
+
+  List<String> stringPermutation(String str){
+    LinkedList<String> result = new LinkedList<>();
+    permutation("", str, result);
+    return result;
+  }
+
+  void permutation(String prefix, String str, List<String> result){
+    if(str.length()==0) result.add(prefix);
+
+    for(int i=0;i<str.length();i++){
+      String before=str.substring(0,i);
+      String after=str.substring(i+1);
+      char newPrefix = str.charAt(i);
+      permutation(prefix+ newPrefix, before+after, result);
+    }
+  }
+
   // with duplicates
-  @Ignore
   @Test
   public void threeElementWithDuplicates() {
     List<List<Integer>> permutationsDupl1 = permutationsWithDuplicates(new int[] { 2, 1, 2 });
-    List<List<Integer>> permutationsDupl2 = permutationsv1(new int[] { 2, 1, 2  });
 
     assertEquals(3, permutationsDupl1.size());
-    Assert.assertEquals(permutationsDupl1,permutationsDupl2);
 
     Assert.assertTrue(permutationsDupl1.contains(new ArrayList<>(Arrays.asList(1,2,2))));
     Assert.assertTrue(permutationsDupl1.contains(new ArrayList<>(Arrays.asList(2,1,2))));
     Assert.assertTrue(permutationsDupl1.contains(new ArrayList<>(Arrays.asList(2,2,1))));
+
+    ArrayList<String> result = backtrackWithDuplicates2("aab");
+    assertEquals(3, result.size());
+    for (String s : result) {
+      System.out.println(s);
+    }
   }
 
   private List<List<Integer>> permutationsWithDuplicates(int[] nums)
@@ -176,6 +177,39 @@ public class Permutations
         tempList.remove(tempList.size()-1);
       }
     }
+  }
+
+  public HashMap<Character, Integer> buildFreqTable(String s) {
+    HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+    for (char c : s.toCharArray()) {
+      if (!map.containsKey(c)) {
+        map.put(c, 0);
+      }
+      map.put(c, map.get(c) + 1);
+    }
+    return map;
+  }
+
+  public void recursionDup2(HashMap<Character, Integer> map, String prefix, int remaining, ArrayList<String> result) {
+    if (remaining == 0) {
+      result.add(prefix);
+    } else {
+      for (Character c : map.keySet()) {
+        int count = map.get(c);
+        if (count > 0) {
+          map.put(c,  count - 1);
+          recursionDup2(map, prefix + c, remaining - 1, result);
+          map.put(c,  count);
+        }
+      }
+    }
+  }
+
+  public ArrayList<String> backtrackWithDuplicates2(String s) {
+    ArrayList<String> result = new ArrayList<String>();
+    HashMap<Character, Integer> map = buildFreqTable(s);
+    recursionDup2(map, "", s.length(), result);
+    return result;
   }
 
 }
