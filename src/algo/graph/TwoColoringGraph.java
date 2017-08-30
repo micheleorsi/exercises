@@ -70,15 +70,16 @@ public class TwoColoringGraph
             actual.status = GNode.Status.PROCESSED;
             for(TCNode node:actual.adj)
             {
-                if(node.status!= GNode.Status.PROCESSED)
-                {
-                    processEdge(actual,node);
-                }
                 if(node.status== GNode.Status.UNDISCOVERED)
                 {
                     q.add(node);
                     node.status= GNode.Status.DISCOVERED;
                     node.parent=actual;
+                }
+
+                if(node.status!= GNode.Status.PROCESSED)
+                {
+                    processEdge(actual,node);
                 }
             }
         }
