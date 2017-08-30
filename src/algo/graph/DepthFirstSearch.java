@@ -210,9 +210,6 @@ class DFSStack extends AbstractGS {
           processEdge(edgeSeq,actual, n);
         }
       }
-
-
     }
-
   }
 }
