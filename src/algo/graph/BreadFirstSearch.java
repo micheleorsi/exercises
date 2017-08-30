@@ -139,16 +139,17 @@ class BFS extends AbstractGS {
       // loop through all the other one
       for(GNode n: actual.adj)
       {
-        if(n.status!= GNode.Status.PROCESSED || g.isDirected)
-        {
-          processEdge(edgeSeq,actual, n);
-        }
         // add to the queue if not visited
         if(n.status==GNode.Status.UNDISCOVERED)
         {
           queue.add(n);
           n.parent=actual;
           n.status=GNode.Status.DISCOVERED;
+        }
+
+        if(n.status!= GNode.Status.PROCESSED || g.isDirected)
+        {
+          processEdge(edgeSeq,actual, n);
         }
       }
 

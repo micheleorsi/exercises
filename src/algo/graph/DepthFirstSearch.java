@@ -151,7 +151,7 @@ class DFSRecursive extends AbstractGS {
         processEdge(edgeSeq,actual,n);
         search(g, n);
       }
-      else if((n.status== GNode.Status.DISCOVERED && actual.parent!=n)|| g.isDirected) {
+      else if((n.status!= GNode.Status.PROCESSED && actual.parent!=n)|| g.isDirected) {
         processEdge(edgeSeq,actual,n);
         if(isFinished)
           return;
@@ -198,15 +198,16 @@ class DFSStack extends AbstractGS {
       // loop through all the other one
       for(GNode n: actual.adj)
       {
-        if(n.status!= GNode.Status.PROCESSED || g.isDirected)
-        {
-          processEdge(edgeSeq,actual, n);
-        }
         if(n.status== GNode.Status.UNDISCOVERED)
         {
           stack.push(n);
           n.parent=actual;
           n.status= GNode.Status.DISCOVERED;
+        }
+
+        if(n.status!= GNode.Status.PROCESSED || g.isDirected)
+        {
+          processEdge(edgeSeq,actual, n);
         }
       }
 
