@@ -17,7 +17,7 @@ import java.util.Stack;
  *            |    / \
  *            |---4  7
  */
-public class FindPath
+public class FindPath extends BreadFirstSearch
 {
     List<GNode> list = new LinkedList<>();
 
@@ -54,9 +54,6 @@ public class FindPath
             }
             // loop through all the other one
             for (GNode n : actual.adj) {
-                if (n.status != GNode.Status.PROCESSED || g.isDirected) {
-//                    processEdge(actual, n);
-                }
                 // add to the queue if not visited
                 if (n.status == GNode.Status.UNDISCOVERED) {
                     queue.add(n);
@@ -67,6 +64,10 @@ public class FindPath
                         break;
                     }
                 }
+
+                if (n.status != GNode.Status.PROCESSED || g.isDirected) {
+//                    processEdge(actual, n);
+                }
             }
         }
         while(last!=null)
@@ -76,17 +77,4 @@ public class FindPath
         }
     }
 
-    private void findPath(GNode gNode1, GNode gNode2) {
-        if(gNode1==gNode2)
-        {
-            System.out.print(gNode1+" <- ");
-            list.add(gNode1);
-        }
-        else
-        {
-            findPath(gNode1,gNode2.parent);
-            System.out.print(gNode2+" <- ");
-            list.add(gNode2);
-        }
-    }
 }
