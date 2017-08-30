@@ -54,12 +54,12 @@ public class TwoColoringGraph
             if(node.status== GNode.Status.UNDISCOVERED)
             {
                 node.colour=Colour.WHITE;
-                search(node);
+                search(g,node);
             }
         }
     }
 
-    <T> void search(TCNode<T> n)
+    <T> void search(Graph<TCNode> g, TCNode<T> n)
     {
         Queue<TCNode> q = new LinkedList<>();
         q.add(n);
@@ -77,7 +77,7 @@ public class TwoColoringGraph
                     node.parent=actual;
                 }
 
-                if(node.status!= GNode.Status.PROCESSED)
+                if(node.status!= GNode.Status.PROCESSED || g.isDirected)
                 {
                     processEdge(actual,node);
                 }
