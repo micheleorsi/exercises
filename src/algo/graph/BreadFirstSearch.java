@@ -110,12 +110,8 @@ public class BreadFirstSearch
 
 class BFS extends AbstractGS {
 
-  List<GNode> nodeSeq;
-  List<String> edgeSeq;
-
   public BFS(List<GNode> nodeSeq, List<String> edgeSeq) {
-    this.nodeSeq = nodeSeq;
-    this.edgeSeq = edgeSeq;
+    super(nodeSeq,edgeSeq);
   }
 
   @Override
@@ -133,7 +129,7 @@ class BFS extends AbstractGS {
       GNode<T> actual = queue.remove();
 
       // process early
-      processEarly(nodeSeq,actual);
+      processEarly(actual);
       actual.status=GNode.Status.PROCESSED;
 
       // loop through all the other one
@@ -146,16 +142,14 @@ class BFS extends AbstractGS {
           n.parent=actual;
           n.status=GNode.Status.DISCOVERED;
         }
-
         if(n.status!= GNode.Status.PROCESSED || g.isDirected)
         {
-          processEdge(edgeSeq,actual, n);
+          processEdge(actual, n);
         }
       }
 
       // process late
-      processLate(nodeSeq,actual);
-
+      processLate(actual);
     }
   }
 }

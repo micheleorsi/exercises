@@ -77,18 +77,18 @@ class TS extends DFSRecursive {
     }
 
     @Override
-    public <T> void processEarly(List<GNode> nodeSeq, GNode<T> actual) {
+    public <T> void processEarly(GNode<T> actual) {
     }
 
     @Override
-    public <T> void processLate(List<GNode> nodeSeq, GNode<T> actual) {
-        super.processLate(nodeSeq, actual);
+    public <T> void processLate(GNode<T> actual) {
+        super.processLate(actual);
         nodeSeq.add(actual);
     }
 
     @Override
-    public <T> void processEdge(List<String> edgeSeq, GNode<T> node1, GNode<T> node2) {
-        super.processEdge(edgeSeq, node1, node2);
+    public <T> void processEdge(GNode<T> node1, GNode<T> node2) {
+        super.processEdge(node1, node2);
 
         if(node2.status== GNode.Status.DISCOVERED) {
             throw new RuntimeException("There is a cycle");

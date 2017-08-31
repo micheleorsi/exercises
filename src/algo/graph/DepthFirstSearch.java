@@ -119,16 +119,12 @@ public class DepthFirstSearch
 
 class DFSRecursive extends AbstractGS {
 
-  List<GNode> nodeSeq;
-  List<String> edgeSeq;
-
   int time=0;
 
   boolean isFinished = false;
 
   public DFSRecursive(List<GNode> nodeSeq, List<String> edgeSeq) {
-    this.nodeSeq = nodeSeq;
-    this.edgeSeq = edgeSeq;
+    super(nodeSeq,edgeSeq);
   }
 
   @Override
@@ -141,24 +137,24 @@ class DFSRecursive extends AbstractGS {
     time++;
     actual.entryTime=time;
 
-    processEarly(nodeSeq,actual);
+    processEarly(actual);
 
     for(GNode n: actual.adj)
     {
       if(n.status== GNode.Status.UNDISCOVERED)
       {
         n.parent = actual;
-        processEdge(edgeSeq,actual,n);
+        processEdge(actual,n);
         search(g, n);
       }
       else if((n.status!= GNode.Status.PROCESSED && actual.parent!=n)|| g.isDirected) {
-        processEdge(edgeSeq,actual,n);
+        processEdge(actual,n);
         if(isFinished)
           return;
       }
     }
 
-    processLate(nodeSeq,actual);
+    processLate(actual);
 
     time++;
     actual.exitTime=time;
@@ -172,8 +168,7 @@ class DFSStack extends AbstractGS {
   List<String> edgeSeq;
 
   public DFSStack(List<GNode> nodeSeq, List<String> edgeSeq) {
-    this.nodeSeq = nodeSeq;
-    this.edgeSeq = edgeSeq;
+    super(nodeSeq,edgeSeq);
   }
 
   @Override
@@ -192,7 +187,7 @@ class DFSStack extends AbstractGS {
       // extract last from the stack
       GNode<T> actual = stack.pop();
       // process if it is not already visited
-      processEarly(nodeSeq,actual);
+      processEarly(actual);
       actual.status= GNode.Status.PROCESSED;
 
       // loop through all the other one
@@ -207,7 +202,7 @@ class DFSStack extends AbstractGS {
 
         if(n.status!= GNode.Status.PROCESSED || g.isDirected)
         {
-          processEdge(edgeSeq,actual, n);
+          processEdge(actual, n);
         }
       }
     }

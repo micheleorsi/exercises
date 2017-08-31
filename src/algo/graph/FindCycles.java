@@ -42,9 +42,9 @@ class FC extends DFSRecursive {
     }
 
     @Override
-    public <T> void processEdge(List<String> edgeSeq, GNode<T> node1, GNode<T> node2) {
-        super.processEdge(edgeSeq, node1, node2);
-        if(node2.status== GNode.Status.DISCOVERED && node1.parent!=node2) {
+    public <T> void processEdge(GNode<T> node1, GNode<T> node2) {
+        super.processEdge(node1, node2);
+        if(node2.status== GNode.Status.DISCOVERED) {
             System.out.println("cycle from "+node1.value+" to "+node2.value);
             isFinished=true;
         }
