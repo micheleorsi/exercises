@@ -196,7 +196,6 @@ class DFSStack extends AbstractGS {
           n.parent=actual;
           n.status= GNode.Status.DISCOVERED;
         }
-
         if(n.status!= GNode.Status.PROCESSED || g.isDirected)
         {
           processEdge(actual, n);
