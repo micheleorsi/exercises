@@ -100,10 +100,8 @@ public class BuildOrder {
             if(n.status==UNDISCOVERED) {
                 n.status=DISCOVERED;
                 dfs(g,n,buildOrder);
-            } else {
-                if(n.status==DISCOVERED) {
-                    throw new RuntimeException();
-                }
+            } else if(n.status!=PROCESSED) {
+                throw new RuntimeException();
             }
         }
 
