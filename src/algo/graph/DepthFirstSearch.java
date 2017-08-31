@@ -164,9 +164,6 @@ class DFSRecursive extends AbstractGS {
 
 class DFSStack extends AbstractGS {
 
-  List<GNode> nodeSeq;
-  List<String> edgeSeq;
-
   public DFSStack(List<GNode> nodeSeq, List<String> edgeSeq) {
     super(nodeSeq,edgeSeq);
   }
