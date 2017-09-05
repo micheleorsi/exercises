@@ -4,10 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  *                  1
@@ -23,12 +20,14 @@ public class FindPath
     List<GNode> list = new LinkedList<>();
 
     FP algo;
+    FPBidirectional algobid;
     List<GNode> nodeSeq = new LinkedList<>();
     List<String> edgeSeq = new LinkedList<>();
 
     @Before
     public void setup() {
         algo = new FP(nodeSeq,edgeSeq);
+        algobid = new FPBidirectional(nodeSeq,edgeSeq);
     }
 
     @Test
@@ -61,7 +60,72 @@ public class FindPath
         for(int i=0; i<list.size(); i++) {
             Assert.assertEquals(expectedOrder[i],list.pop().value);
         }
+    }
 
+    @Test
+    public void testbidirectional() {
+        Graph<GNode> g = Graph.Builder.buildWithCycle();
+        g.init();
+
+        boolean val = algobid.findPathBidirectional(g,g.nodes.get(0),g.nodes.get(6));
+        Assert.assertTrue(val);
+
+        List<GNode> temp = new ArrayList<>(g.nodes);
+        GNode node = new GNode(10);
+        node.adj = Arrays.asList();
+        temp.add(node);
+        g.nodes = temp;
+
+        g.init();
+
+        val = algobid.findPathBidirectional(g,g.nodes.get(0),g.nodes.get(7));
+        Assert.assertFalse(val);
+    }
+
+    class FPBidirectional extends FP {
+
+        public FPBidirectional(List<GNode> nodeSeq, List<String> edgeSeq) {
+            super(nodeSeq, edgeSeq);
+        }
+
+        <T> boolean findPathBidirectional(Graph g, GNode<T> head, GNode<T> last) {
+            // BFS on both nodes at the same time
+            Queue<GNode<T>> queueA = new LinkedList<>();
+            Queue<GNode<T>> queueB = new LinkedList<>();
+            Set<GNode<T>> visitedA = new HashSet<>();
+            Set<GNode<T>> visitedB = new HashSet<>();
+
+            visitedA.add(head);
+            visitedB.add(last);
+            queueA.add(head);
+            queueB.add(last);
+
+            while (!queueA.isEmpty() && !queueB.isEmpty()) {
+                if (pathExists(queueA, visitedA, visitedB)) {
+                    return true;
+                }
+                if (pathExists(queueB, visitedB, visitedA)) {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        <T> boolean pathExists(Queue<GNode<T>> queue, Set<GNode<T>> visitedFromThisSide, Set<GNode<T>> visitedFromThatSide) {
+            if (!queue.isEmpty()) {
+                GNode<T> next = queue.remove();
+                for (GNode<T> adjacent : next.adj) {
+                    if (visitedFromThatSide.contains(adjacent)) {
+                        return true;
+                    } else if (visitedFromThisSide.add(adjacent)) {
+                        queue.add(adjacent);
+                    }
+                }
+            }
+            return false;
+        }
     }
 
     class FP extends BFS {
