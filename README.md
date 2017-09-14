@@ -109,7 +109,7 @@
 ## backtracking
 
 - [X] [subsets](src/algo/backtracking/SubsetAlgo.java)
-- [ ] permutations
+- [X] [permutations](src/algo/backtracking/Permutations.java)
 - [ ] combination sum
 - [ ] palindrome partitioning
 - [ ] anagram of a string
@@ -344,7 +344,7 @@
 - [X] implemented by a Red-BlackTree
 
 ## LinkedHashMap
-- [X] loolup: O(1) 
+- [X] lookup: O(1) 
 - [X] insertion: O(1)
 - [X] ordering by insertion order
 - [X] implemented by doubly-linked buckets
