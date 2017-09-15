@@ -11,10 +11,9 @@ public class Ex6_6_BuyAndSellStockOnce {
     }
 
     int maxProfit(int[] array) {
-        // check if array.length <0
-        int min=array[0];
+        int min=Integer.MAX_VALUE;
         int maxProfit=Integer.MIN_VALUE;
-        for(int i=1; i<array.length; i++) {
+        for(int i=0; i<array.length; i++) {
             maxProfit = Math.max(array[i]-min,maxProfit);
             min = Math.min(array[i],min);
         }
