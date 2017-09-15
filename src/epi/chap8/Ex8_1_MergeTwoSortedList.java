@@ -13,7 +13,7 @@ class Node {
 
 
 
-public class MergeTwoSortedList {
+public class Ex8_1_MergeTwoSortedList {
 
     @Test
     public void test() {
