@@ -9,6 +9,13 @@ class Node {
     Node(int val) {
         this.val = val;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "val=" + val +
+                '}';
+    }
 }
 
 
